@@ -1,5 +1,12 @@
 # Tanks-EPO4
 Tanks game design for 'Sea of Gates' IC or FPGA
 
-Thomas taart counter: 1.5
-Tijd taart counter: 1 duizend
+## we are going to build awesome things!
+It should resemble this: http://www.retrogames.cz/play_014-NES.php :D
+
+## Schedule
+This is a placeholder for the very tight schedule that is in production as you are reading this!
+
+## Cakes, the most important part of our success
+1. Thomas taart counter: 1.5
+2. Tijd taart counter: 1 duizend
