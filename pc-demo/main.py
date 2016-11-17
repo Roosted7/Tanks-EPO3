@@ -149,7 +149,7 @@ pygame.display.set_icon(pygame.transform.scale(player((random.randint(0, 255),ra
 done = 0
 font1 = pygame.font.Font("resources/PressStart2P.ttf",14)
 font2 = pygame.font.Font("resources/PressStart2P.ttf",24)
-font3 = pygame.font.Font("resources/pressStart2P.ttf",12)
+font3 = pygame.font.Font("resources/PressStart2P.ttf",12)
 playText = font1.render("PRESS [SPACE] TO PLAY", 16, BLACK)
 menuText = font2.render("TA1NKS", 0, BLACK)
 orientationList = (compass("NORTH"), compass("EAST"), compass("SOUTH"), compass("WEST")) # List all possible directions
