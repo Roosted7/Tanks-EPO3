@@ -1,11 +1,20 @@
 Tanks apparte kleur: 2
-Kogel+muur kleur: 1
+Kogel kleur: 2
+Muur kleur: 1
 Leeg kleur: 1
 
 2 bits:
-
 
 00: Leeg
 01: Tank 1
 10: Tank 2
 11: Muur + kogel
+
+
+3 bits:
+000: Leeg
+001: Tank1
+100: Tank2
+011: Kogel Tank 1
+110: Kogel Tank 2
+111: Muur
