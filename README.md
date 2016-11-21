@@ -9,4 +9,4 @@ This is a placeholder for the very tight schedule that is in production as you a
 
 ## Cakes, the most important part of our success
 1. Thomas taart counter: 4
-2. Tijs taart counter: 1
+2. Tijs taart counter: 2
