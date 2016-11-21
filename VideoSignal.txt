@@ -1,4 +1,4 @@
-Tanks apparte kleur: 2
+Tanks aparte kleur: 2
 Kogel kleur: 2
 Muur kleur: 1
 Leeg kleur: 1
