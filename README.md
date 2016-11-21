@@ -1,4 +1,4 @@
-# Tanks-EPO4
+# Tanks-EPO3
 Tanks game design for 'Sea of Gates' IC or FPGA
 
 ## we are going to build awesome things!
