@@ -17,4 +17,5 @@ Leeg kleur: 1
 100: Tank2
 011: Kogel Tank 1
 110: Kogel Tank 2
+101: Kogel op Kogel
 111: Muur
