@@ -21,6 +21,9 @@ begin
 			if(cnt_pixel = 7) then
 				pixel <= '1';
 				cnt_pixel <= (others => '0');
+			elsif(cnt_pixel = 4) then
+				pixel <= '0';
+				cnt_pixel <= cnt_pixel + 1;
 			else
 				cnt_pixel <= cnt_pixel + 1;
 			end if;
