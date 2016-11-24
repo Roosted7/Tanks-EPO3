@@ -4,9 +4,16 @@ use ieee.numeric_std.all;
 
 entity frame_div is
 	port(
-		sixtyhertz, reset: in std_logic,
-		thirtyhertz: out std_logic);
+		frame: in std_logic,
+		vbullet: out std_logic);
 end frame_div;
 
 architecture arch of frame_div is
-	
+begin
+	process(frame)
+	begin
+		if(rising_edge(frame)) then
+			vbullet <= not(vbullet);
+		end if;
+	end process;
+end arch;
