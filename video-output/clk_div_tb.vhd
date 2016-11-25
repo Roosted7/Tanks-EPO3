@@ -15,8 +15,10 @@ architecture arch of clk_div_tb is
 signal clk, reset, pixel, blck: std_logic;
 
 begin
-	clk   <= '0' after   0 ns,
-                 '1' after   5 ns when clk /= '1' else '0' after 5 ns;
+	reset <= 	'1' after 0 ns,
+				'0' after 100 ns;
+	clk   <= 	'0' after   0 ns,
+                '1' after   5 ns when clk /= '1' else '0' after 5 ns;
 
 	l1: clk_div port map(clk, reset, pixel, blck);
 end architecture;

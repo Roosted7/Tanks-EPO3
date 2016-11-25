@@ -19,16 +19,16 @@ begin
 	begin
 		if(reset = '1') then
 			cnt_pixel <= (others => '0');
-			pixel <= '0';
+			pixel <= '1';
 		elsif(rising_edge(clk)) then
-			if(to_integer(signed(cnt_pixel)) >= 7) then
+			if(to_integer(unsigned(cnt_pixel)) >= 6) then
 				pixel <= '1';
 				cnt_pixel <= (others => '0');
-			elsif(to_integer(signed(cnt_pixel)) >= 4) then
+			elsif(to_integer(unsigned(cnt_pixel)) >= 3) then
 				pixel <= '0';
-				cnt_pixel <= std_logic_vector(to_unsigned(to_integer(signed(cnt_pixel)) + 1, 3));
+				cnt_pixel <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_pixel)) + 1, 3));
 			else
-				cnt_pixel <= std_logic_vector(to_unsigned(to_integer(signed(cnt_pixel)) + 1, 3));
+				cnt_pixel <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_pixel)) + 1, 3));
 			end if;
 		end if;
 	end process;
@@ -37,12 +37,13 @@ begin
 	begin
 		if(reset = '1') then
 			cnt_blck <= (others => '0');
-			blck_i <= '0';
+			blck_i <= '1';
 		elsif(rising_edge(clk)) then
-			if(to_integer(signed(cnt_blck)) = 105) then
+			if(to_integer(unsigned(cnt_blck)) = 104) then
 				blck_i <= not(blck_i);
+				cnt_blck <= (others => '0');
 			else
-				cnt_blck <= std_logic_vector(to_unsigned(to_integer(signed(cnt_blck)) + 1, 7));
+				cnt_blck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_blck)) + 1, 7));
 			end if;
 		end if;
 	end process;

@@ -1,7 +1,0 @@
-v 4
-file . "clk_divider.vhd" "06e7a0ece0be4a4bb05be031ed53d6428fe25097" "20161124232235.687":
-  entity clk_div at 1( 0) + 0 on 27;
-  architecture arch of clk_div at 11( 180) + 0 on 28;
-file . "clk_divider_tb.vhd" "3465c27a2b568ea71cb8362ab29760a1dea1fce7" "20161124231804.644":
-  entity clk_div_tb at 1( 0) + 0 on 23;
-  architecture arch of clk_div_tb at 8( 115) + 0 on 24;
