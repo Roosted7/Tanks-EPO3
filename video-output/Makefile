@@ -5,7 +5,7 @@ TARGET = clk_div
 TB = clk_div_tb
 #TB = $(wildcard *_tb.vhd)
 
-GHDLFLAGS = --vcd=$(TARGET).vcd --stop-time=5us
+GHDLFLAGS = --vcd=$(TARGET).vcd --stop-time=100ms
 
 default:
 	$(GHDL) -a $(TARGET).vhd &
