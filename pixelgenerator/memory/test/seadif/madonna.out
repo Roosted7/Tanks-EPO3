@@ -1,0 +1,59 @@
+
+Madonna version 3.3 (compiled Thu, 19 Feb 2015 14:35:41 for "linux-2.6-i686")
+
+reading circuit "tank_pos_reg(tank_pos_reg(test))" ...done
+
+Kissing madonna hello...
+
+Reading image description file "/data/public/common/software/nelsis/5.4.7p/share/lib/celllibs/fishbone/image.seadif"...
+
+
+------ net distribution (total #nets = 24):
+        0..1     2     3     4     5     6     7 8..10 11..20  >20
+
+           0    20     0     0     0     0     0     0     4     0
+
+------ partitioning 10 cells into (hor x vert) = (2 x 2) partitions
+
+------ requested grid points = (56, 56)
+
+------ cost@start = 40, cost@end = 40, moves = 0
+------ s, w, b = 32, 32, 32; perm = 1 2 4 3 
+------ 2 nets have to be routed on a 3 x 3 global grid
+     + routing net reset (4 terminals):  weight = 600
+     + routing net update_pos (4 terminals):  weight = 600
+
+------ Routed 2 nets, total weight = 1200
+
+
+
+------ Detailed placement of (Tmp_Cell_(tank_pos_reg(tank_pos_reg(test))))...
+------ Reading input data
+------ Creating temporary data structures
+------ Placement plane size : [56:56]
+------ Doing placement 
+ Can't place cell :y_in_reg_reg_0_inst  in window at (0,0)
+ Can't place cell :or_in_reg_reg_1_inst  in window at (0,0)
+
+ Apparently the magnification coefficient is too small. 
+ Let's try to run the algorithm for bigger magn. coefficient. 
+------ Placement plane size : [72:56]
+------ Doing placement 
+ Can't place cell :y_in_reg_reg_0_inst  in window at (0,0)
+ Can't place cell :x_in_reg_reg_3_inst  in window at (0,0)
+
+ Apparently the magnification coefficient is too small. 
+ Let's try to run the algorithm for bigger magn. coefficient. 
+------ Placement plane size : [93:56]
+------ Doing placement 
+------ Compacting  
+
+         4  column[s] deleted.
+
+         Magnification coefficient obtained :0.814286
+
+------ Writing created layout to database
+Kissing madonna good bye...
+
+Madonna took 0.0 seconds of your cpu
+terminate

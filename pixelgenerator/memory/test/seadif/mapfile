@@ -1,0 +1,19 @@
+# This is a maptable for nelsis <--> seadif conversion, generated/maintained by 'nelsea'
+# Written on: Sun Nov 27 21:36:13 2016
+# You can edit this file to control the mapping process
+# Each line contains the name of a nelsis cell and its corresponding seadif cell
+# The status field may contain the following values:
+#    'written'       the cell was successfully written into seadif resp. nelsis
+#    'primitive'     the cell is a primitive which should not be read or converted
+#    [anything else] the cell will be written if necessary
+# To check the consistency of this table: use 'nelsea -C'
+#    N E L S I S     |                   S E A D I F                     | nelsis->sdf sdf->nelsis
+# view    cellname   | library      function     circuit      layout     |   status      status
+#--------------------+---------------------------------------------------+------------------------
+ layout   dfr11        g_digilib5_99 dfr11        dfr11        dfr11        not_written not_written
+ layout   Tmptank_pos_reg10591 test         tank_pos_reg tank_pos_reg Tmp_Cell_    not_written written
+ circuit  cap          primitives   cap          cap          $dummy       primitive   primitive
+ circuit  res          primitives   res          res          $dummy       primitive   primitive
+ circuit  penh         primitives   penh         penh         $dummy       primitive   primitive
+ circuit  nenh         primitives   nenh         nenh         $dummy       primitive   primitive
+ layout   Error_Marker tmplib       Error_Marker Error_Marker Error_Marker primitive   primitive

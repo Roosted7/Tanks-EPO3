@@ -1,0 +1,47 @@
+# Tabular Link File created on Sun 27 Nov 2016 21:31:07
+# By Program: design_flow
+# From Source: /home/ndekoeijer/Documents/Tanks-EPO3/pixelgenerator/memory/tank_pos_reg.lst
+# Clock_column: 2
+INP hit_in;
+OUT hit_out;
+INP clk;
+INP reset;
+INP tank_x_in_3_0_3;
+INP tank_x_in_3_0_2;
+INP tank_x_in_3_0_1;
+INP tank_x_in_3_0_0;
+OUT tank_x_out_3_0_3;
+OUT tank_x_out_3_0_2;
+OUT tank_x_out_3_0_1;
+OUT tank_x_out_3_0_0;
+INP tank_y_in_3_0_3;
+INP tank_y_in_3_0_2;
+INP tank_y_in_3_0_1;
+INP tank_y_in_3_0_0;
+OUT tank_y_out_3_0_3;
+OUT tank_y_out_3_0_2;
+OUT tank_y_out_3_0_1;
+OUT tank_y_out_3_0_0;
+INP tank_or_in_1_0_1;
+INP tank_or_in_1_0_0;
+OUT tank_or_out_1_0_1;
+OUT tank_or_out_1_0_0;
+INP update_pos;
+INP reset;
+PERIOD 164ns;
+TIME_UNIT 1.0e-10s;
+TABLE_FORMAT D<26c;
+DATA_SECTION
+             00<HxHHxxHxxxhxxxHxxxhxxxxxHH
+            820<HxLHHHHHxxxxHLHLxxxxHHxxLH
+           1630<HxLLHHHHxxxxHLHLxxxxHHxxLL
+           1640<HhHLHHHHhhhhHLHLhlhlHHhhHL
+           2460<HhLLHHHHhhhhHLHLhlhlHHhhLL
+           3280<HhHLHHHHhhhhHLHLhlhlHHhhHL
+           4100<HhLLHHHHhhhhHLHLhlhlHHhhLL
+           4920<HhHLHHHHhhhhHLHLhlhlHHhhHL
+           5740<HhLLHHHHhhhhHLHLhlhlHHhhLL
+           6560<HhHLHHHHhhhhHLHLhlhlHHhhHL
+           7380<HhLLHHHHhhhhHLHLhlhlHHhhLL
+
+

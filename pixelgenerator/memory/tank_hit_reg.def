@@ -1,0 +1,4 @@
+/reg_tb/c00/hit_in	  1	I
+/reg_tb/c00/hit_out	  2	O
+/reg_tb/c00/clk	  3	I
+/reg_tb/c00/reset	  4	I
