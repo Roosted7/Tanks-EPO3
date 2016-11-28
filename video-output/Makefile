@@ -17,4 +17,4 @@ test:
 	$(GTKWAVE) $(TARGET).vcd
 
 clean:
-	$(RM) -f work*.cf
+	$(RM) -f work*.cf *.o
