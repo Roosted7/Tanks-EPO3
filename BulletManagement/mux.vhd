@@ -7,11 +7,9 @@ entity mux_11 is
           out_vector  : out std_logic_vector(10 downto 0));
 end mux_11;
 
-architecture mux_11_behavioral of mux_11 is
+architecture mux_11_arch of mux_11 is
 begin
   
-  with sel select
-    out_vector <= in_1 when '0';
-                  in_2 when others;
+out_vector <= in_1 when (sel='0') else in_2;
                   
-end mux_11_behavioral;
+end mux_11_arch;
