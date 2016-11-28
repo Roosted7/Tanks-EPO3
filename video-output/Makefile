@@ -1,9 +1,9 @@
 GHDL = ghdl
 GTKWAVE = gtkwave
 
-TARGET = clk_div
-TB = clk_div_tb
-#TB = $(wildcard *_tb.vhd)
+TARGET = vga_out
+#TB = clk_div_tb
+TB = $(TARGET)_tb
 
 GHDLFLAGS = --vcd=$(TARGET).vcd --stop-time=100ms
 

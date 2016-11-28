@@ -41,8 +41,15 @@ begin
 		if(reset = '1') then
 			cnt_row <= (others => '0');
 			row_i <= '1';
+			hsync <= '0';
 		elsif(rising_edge(pixel_i)) then
 			cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 6));
+
+			if((to_integer(unsigned(cnt_row)) >= 29) and (to_integer(unsigned(cnt_row)) <= 32)) then
+				hsync <= '0';
+			else
+				hsync <= '1';
+			end if;
 
 			if(to_integer(unsigned(cnt_row)) = 35) then -- 35 = 36 - 1; 36 = 29 + hsync
 				row_i <= '1';
@@ -58,8 +65,15 @@ begin
 		if(reset = '1') then
 			cnt_frame <= (others => '0');
 			frame_i <= '1';
+			vsync <= '0';
 		elsif(rising_edge(row_i)) then
 			cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_frame)) + 1, 10));
+
+			if((to_integer(unsigned(cnt_frame)) >= 489) and (to_integer(unsigned(cnt_frame)) <= 490)) then
+				vsync <= '0';
+			else
+				vsync <= '1';
+			end if;
 			
 			if(to_integer(unsigned(cnt_frame)) = 524) then -- 524 = 525 - 1; 525 = 480 + vsync
 				frame_i <= '1';
@@ -76,19 +90,6 @@ begin
 			vbullet_i <= '1';
 		elsif(rising_edge(frame_i)) then
 			vbullet_i <= not(vbullet_i);
-		end if;
-	end process;
-
-	process(reset, row_i) -- create hsync signal
-	begin
-		if(reset = '1') then
-			hsync <= '0';
-		elsif(rising_edge(row_i)) then
-			if((to_integer(unsigned(cnt_row)) > 30) and (to_integer(unsigned(cnt_row)) < 35)) then
-				hsync <= '0';
-			else
-				hsync <= '1';
-			end if;
 		end if;
 	end process;
 
