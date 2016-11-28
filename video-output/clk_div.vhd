@@ -84,7 +84,7 @@ begin
 		if(reset = '1') then
 			hsync <= '0';
 		elsif(rising_edge(row_i)) then
-			if((to_integer(unsigned(cnt_pixel)) > 30) and (to_integer(unsigned(cnt_pixel)) < 35)) then
+			if((to_integer(unsigned(cnt_row)) > 30) and (to_integer(unsigned(cnt_row)) < 35)) then
 				hsync <= '0';
 			else
 				hsync <= '1';
