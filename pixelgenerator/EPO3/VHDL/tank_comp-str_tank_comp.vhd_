@@ -1,0 +1,8 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+architecture str_tank_comp of tank_comp is
+begin
+end str_tank_comp;
+
+
