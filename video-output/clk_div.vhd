@@ -4,14 +4,14 @@ use ieee.numeric_std.all;
 
 entity clk_div is
 	port(
-		clk, reset:	in  std_logic;
+		clk, reset:					in  std_logic;
 		blck, row, frame, vbullet: 	out std_logic);
 end clk_div;
 
 architecture arch of clk_div is
 signal cnt_blck: 	std_logic_vector(2 downto 0) := (others => '0');
 signal cnt_row:		std_logic_vector(4 downto 0) := (others => '0');
-signal cnt_frame:	std_logic_vector(9 downto 0) := (others => '0');
+signal cnt_frame:	std_logic_vector(8 downto 0) := (others => '0');
 
 signal blck_i: 		std_logic := '1';
 signal row_i:		std_logic := '1';
