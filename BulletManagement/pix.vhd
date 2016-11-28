@@ -7,7 +7,7 @@ entity pix is
           draw        : out std_logic);  
 end pix;
 
-architecture pix_structural of pix is
+architecture pix_arch of pix is
 begin
   
   draw <= (b(9) and x(3)) and 
@@ -19,4 +19,4 @@ begin
           (b(3) and y(1)) and
           (b(2) and y(0));
   
-end pix_structural;
+end pix_arch;
