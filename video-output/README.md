@@ -15,4 +15,4 @@ horizontaal in de hsync is A=1, B=4, C=2 en D=29 ([Wikipedia voor letters](https
 verticaal kunnen gewoon de lijnen aangehouden worden voor de letters zoals ze op wiki staan
 
 #VGA protocol
-([Mooie link](http://ecse.bd.psu.edu/cenbd452/lab/lab1/lab1.html))
+[Mooie link](http://ecse.bd.psu.edu/cenbd452/lab/lab1/lab1.html)
