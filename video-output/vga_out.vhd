@@ -62,8 +62,8 @@ begin
 	begin
 		if((reset = '1') and (rising_edge(clk))) then
 			cnt_row <= (others => '0');
-			row_i <= '0';
-			hsync <= '0';
+			row_i 	<= '0';
+			hsync 	<= '0';
 		elsif(rising_edge(pixel_i)) then
 			cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 6));
 
@@ -86,11 +86,11 @@ begin
 	process(reset, row_i, clk) -- create frame clock (60 Hz)
 	begin
 		if((reset = '1') and (rising_edge(clk))) then
-			cnt_frame <= (others => '0');
-			frame_i <= '0';
-			vsync <= '0';
-			y_i <= '0';
-			cnt_yblck <= (others => '0');
+			cnt_frame 	<= (others => '0');
+			frame_i 	<= '0';
+			vsync 		<= '0';
+			y_i 		<= '0';
+			cnt_yblck 	<= (others => '0');
 		elsif(rising_edge(row_i)) then
 			cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_frame)) + 1, 10));
 
