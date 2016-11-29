@@ -106,7 +106,7 @@ begin
 				frame_i <= '0';
 			end if;
 
-			if((to_integer(unsigned(cnt_frame)) > 7) and (to_integer(unsigned(cnt_frame)) < 471)) then
+			if((to_integer(unsigned(cnt_frame)) > 6) and (to_integer(unsigned(cnt_frame)) < 471)) then
 				cnt_yblck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_yblck)) + 1, 5));
 
 				if(to_integer(unsigned(cnt_yblck)) = 28) then
@@ -115,6 +115,8 @@ begin
 				elsif(to_integer(unsigned(cnt_yblck)) = 14) then
 					y_i <= '0';
 				end if;
+			else
+				cnt_yblck <= "11100";
 			end if;
 		end if;
 	end process;
