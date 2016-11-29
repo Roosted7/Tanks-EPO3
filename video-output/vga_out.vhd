@@ -35,9 +35,9 @@ begin
 	process(reset, clk) -- create pixel_i clock
 	begin
 		if((reset = '1') and (rising_edge(clk))) then
-			cnt_pixel <= (others => '0');
-			pixel_i <= '0';
-			x_i <= '0';
+			cnt_pixel 	<= (others => '0');
+			pixel_i 	<= '0';
+			x_i 		<= '0';
 		elsif(rising_edge(clk)) then
 			cnt_pixel <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_pixel)) + 1, 3));
 
