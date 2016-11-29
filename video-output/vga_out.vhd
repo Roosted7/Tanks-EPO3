@@ -49,9 +49,9 @@ begin
 				else
 					x_i <= '0';
 				end if;
-			elsif(to_integer(unsigned(cnt_pixel)) = 4) then
+			elsif(to_integer(unsigned(cnt_pixel)) = 6) then
 				cnt_pixel <= (others => '0');
-			elsif(to_integer(unsigned(cnt_pixel)) = 2) then
+			elsif(to_integer(unsigned(cnt_pixel)) = 3) then
 				pixel_i	<= '0';
 				x_i 	<= '0';
 			end if;
