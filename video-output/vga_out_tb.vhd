@@ -24,7 +24,9 @@ architecture arch of vga_out_tb is
 
 begin
 	reset <= 	'1' after 0 	ns,
-				'0' after 1148 	ns;
+				'0' after 1148 	ns,
+				'1' after 30 ms,
+				'0' after 40 ms;
 	clk   <= 	'0' after 0 	ns,
                 '1' after 82 	ns when clk /= '1' else '0' after 82 ns;
 
