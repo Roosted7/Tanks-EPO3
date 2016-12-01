@@ -2,11 +2,6 @@ library IEEE;
 use IEEE.std_logic_1164.ALL;
 use ieee.numeric_std.all;
 
-entity newposition is
-   port(bullet_in :in    std_logic_vector(10 downto 0);
-        bullet_out:out   std_logic_vector(10 downto 0));
-end newposition;
-
 architecture behaviour of newposition is
 	signal l: std_logic;
 	signal x: std_logic_vector(3 downto 0);
@@ -59,3 +54,17 @@ begin
 	bullet_out(5 downto 2) <= y_out;
 	bullet_out(1 downto 0) <= dir;
 end behaviour;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
