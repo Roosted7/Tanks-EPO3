@@ -14,25 +14,25 @@ begin
 
 --Compare existence, x coordinates and y coordinates.
 
-  a <=  (b1(10) and postmux_b2(10)) and
-        (b1(9) and postmux_b2(9)) and
-        (b1(8) and postmux_b2(8)) and
-        (b1(7) and postmux_b2(7)) and
-        (b1(6) and postmux_b2(6)) and
-        (b1(5) and postmux_b2(5)) and
-        (b1(4) and postmux_b2(4)) and
-        (b1(3) and postmux_b2(3)) and
-        (b1(2) and postmux_b2(2));
+  a <=  (b1(10) xnor postmux_b2(10)) and
+        (b1(9) xnor postmux_b2(9)) and
+        (b1(8) xnor postmux_b2(8)) and
+        (b1(7) xnor postmux_b2(7)) and
+        (b1(6) xnor postmux_b2(6)) and
+        (b1(5) xnor postmux_b2(5)) and
+        (b1(4) xnor postmux_b2(4)) and
+        (b1(3) xnor postmux_b2(3)) and
+        (b1(2) xnor postmux_b2(2));
 
-  b <=  (b2(10) and postmux_b1(10)) and
-        (b2(9) and postmux_b1(9)) and
-        (b2(8) and postmux_b1(8)) and
-        (b2(7) and postmux_b1(7)) and
-        (b2(6) and postmux_b1(6)) and
-        (b2(5) and postmux_b1(5)) and
-        (b2(4) and postmux_b1(4)) and
-        (b2(3) and postmux_b1(3)) and
-        (b2(2) and postmux_b1(2));
+  b <=  (b2(10) xnor postmux_b1(10)) and
+        (b2(9) xnor postmux_b1(9)) and
+        (b2(8) xnor postmux_b1(8)) and
+        (b2(7) xnor postmux_b1(7)) and
+        (b2(6) xnor postmux_b1(6)) and
+        (b2(5) xnor postmux_b1(5)) and
+        (b2(4) xnor postmux_b1(4)) and
+        (b2(3) xnor postmux_b1(3)) and
+        (b2(2) xnor postmux_b1(2));
   
   coll <= a and b;
   
