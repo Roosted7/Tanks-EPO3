@@ -24,7 +24,8 @@ begin
 -- The 5 tests is to check if the draw signal is low when it should be low
 -- The last 5 tests is to check if the draw signal is high when it should be high
 -- 
-
+lbl1: pix port map(x, y, b, draw);
+	
 x <= 	"0000" after 0 ns, 
 	"1010" after 10 ns,
 	"0101" after 20 ns, 
