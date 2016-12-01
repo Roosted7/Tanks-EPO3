@@ -94,12 +94,12 @@ begin
 				vsync <= '1';
 			end if;
 
-			if(to_integer(unsigned(cnt_frame)) = 0) then
-				frame_i <= '1';
+			if(to_integer(unsigned(cnt_frame)) = 8) then
+				frame_i <= '0';
 			elsif(to_integer(unsigned(cnt_frame)) = 524) then
 				cnt_frame <= (others => '0');
-			elsif(to_integer(unsigned(cnt_frame)) = 262) then
-				frame_i <= '0';
+			elsif(to_integer(unsigned(cnt_frame)) = 471) then
+				frame_i <= '1';
 			end if;
 
 			if((to_integer(unsigned(cnt_frame)) > 7) and (to_integer(unsigned(cnt_frame)) < 472)) then
