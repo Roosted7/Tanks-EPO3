@@ -21,13 +21,13 @@ architecture arch of vga_out_tb is
 	signal rgb: std_logic_vector(2 downto 0);
 
 begin
-	reset <= 	'1' after 0 	ns,
-				'0' after 1148 	ns,
-				'1' after 30 ms,
-				'0' after 40 ms;
-	clk   <= 	'0' after 0 	ns,
-				'1' after 82 	ns when clk /= '1' else '0' after 82 ns;
-	rgb   <=	"111" after 0 ns;
+	reset <= 	'1' 	after 0 	ns,
+				'0' 	after 1148 	ns,
+				'1' 	after 30 	ms,
+				'0' 	after 40 	ms;
+	clk   <= 	'0' 	after 0 	ns,
+				'1' 	after 82 	ns when clk /= '1' else '0' after 82 ns;
+	rgb   <=	"111" 	after 0 	ns;
 
 	l1: vga_out port map(clk, reset, rgb, x, y, hsync, vsync, r, g, b, frame, vbullet);
 end arch;

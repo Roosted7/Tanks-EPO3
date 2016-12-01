@@ -15,9 +15,9 @@ end vga_out;
 architecture arch of vga_out is
 	component timebase is
 		port(
-			clk, reset:						in  std_logic;
-			pixel, frame, vbullet:			out std_logic;
-			hsync, vsync, x_c, y_c: 		out std_logic);
+			clk, reset:				in  std_logic;
+			pixel, frame, vbullet:	out std_logic;
+			hsync, vsync, x_c, y_c: out std_logic);
 	end component timebase;
 	
 	signal cnt_x:			std_logic_vector(3 downto 0);
