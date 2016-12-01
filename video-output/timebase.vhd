@@ -20,7 +20,6 @@ architecture arch of timebase is
 	signal row:				std_logic;
 	signal frame_i:			std_logic;
 	signal vbullet_i:		std_logic;
-	signal pixel_o, row_o, frame_o:				std_logic;
 
 begin
 	process(reset, clk) -- create pixel_i clock
@@ -29,12 +28,9 @@ begin
 			if(reset = '1') then
 				cnt_pixel 	<= (others => '0');
 				pixel_i 	<= '0';
-				pixel_o	 <= '0';
 				x_i 		<= '0';
 			else
 				cnt_pixel <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_pixel)) + 1, 3));
-
-				pixel_o <= pixel_i;
 
 				if(to_integer(unsigned(cnt_pixel)) = 0) then
 					pixel_i <= '1';
@@ -64,12 +60,9 @@ begin
 			if(reset = '1') then
 				cnt_row <= (others => '0');
 				row 	<= '0';
-				row_o	<= '0';
 				hsync 	<= '0';
-			elsif(pixel_i = '1' and pixel_o = '0') then
+			elsif(rising_edge(pixel_i)) then
 				cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 6));
-
-				row_o <= row;
 
 				if((to_integer(unsigned(cnt_row)) >= 23) and (to_integer(unsigned(cnt_row)) <= 25)) then
 					hsync <= '0'; -- create hsync signal
@@ -94,14 +87,11 @@ begin
 			if(reset = '1') then
 				cnt_frame 	<= (others => '0');
 				frame_i 	<= '0';
-				frame_o 	<= '0';
 				vsync 		<= '0';
 				y_i 		<= '0';
 				cnt_yblck 	<= (others => '0');
-			elsif(row = '1' and row_o = '0') then
+			elsif(rising_edge(row)) then
 				cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_frame)) + 1, 10));
-
-				frame_o <= frame_i;
 
 				if((to_integer(unsigned(cnt_frame)) >= 490) and (to_integer(unsigned(cnt_frame)) <= 491)) then
 					vsync <= '0'; -- create vsync signal
@@ -139,13 +129,13 @@ begin
 		if(rising_edge(clk)) then
 			if(reset = '1') then
 				vbullet_i <= '0';
-			elsif(frame_i = '1' and frame_o = '0') then
+			elsif(rising_edge(frame_i)) then
 				vbullet_i <= not(vbullet_i);
 			end if;
 		end if;
 	end process;
 
-	frame 	<= frame_i;
+	frame 	<= row;
 	vbullet <= vbullet_i;
 	pixel 	<= pixel_i;
 	x_c		<= x_i;
