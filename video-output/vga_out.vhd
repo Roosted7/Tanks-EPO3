@@ -26,6 +26,22 @@ architecture arch of vga_out is
 	signal pixel_i, x_c, y_c: std_logic;
 
 begin
+
+	process(reset, x_c, clk)
+	begin
+		if(rising_edge(clk)) then
+			if(reset = '1') then
+				c_x_o   <=	'0';
+				c_y_o   <=	'0';
+				pixel_o <=	'1';
+			else
+				c_x_o <= x_c;
+				c_y_o <= c_y;
+				pixel_o <= pixel_i;
+			end if;
+		end if;
+	end process;
+
 	process(reset, x_c, clk) -- x signal of which pixel is being shown
 	begin
 		if((reset = '1') and (rising_edge(clk))) then
