@@ -94,7 +94,7 @@ begin
 				vsync <= '1';
 			end if;
 
-			if(to_integer(unsigned(cnt_frame)) = 8) then
+			if(to_integer(unsigned(cnt_frame)) = 7) then
 				frame_i <= '0';
 			elsif(to_integer(unsigned(cnt_frame)) = 524) then
 				cnt_frame <= (others => '0');
