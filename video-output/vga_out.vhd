@@ -55,7 +55,9 @@ begin
 	process(reset, pixel_i, clk) -- pass the colors to the screen
 	begin
 		if((reset = '1') and (rising_edge(clk))) then
-			--
+			r <= '0';
+			g <= '0';
+			b <= '0';
 		elsif(rising_edge(pixel_i)) then
 			if(x_c = '0') then
 				r <= '0';
