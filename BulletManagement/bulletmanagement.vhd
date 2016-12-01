@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 library IEEE;
 use IEEE.std_logic_1164.all;
 
@@ -136,8 +134,3 @@ begin
     tank_t2(1 downto 0)<=dir_t2;
     
 end bullet_mod_arch;
-    
-        
-        
-
->>>>>>> origin/BulletManagement
