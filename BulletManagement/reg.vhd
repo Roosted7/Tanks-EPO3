@@ -16,7 +16,7 @@ begin
   begin
     if(rising_edge(clk)) then
        if (reset = '1') then
-          q <= (others => '0');
+          q <= "00000000000"; 
        else
           q <= d;
        end if;

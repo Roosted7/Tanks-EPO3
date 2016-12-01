@@ -17,6 +17,7 @@ begin
           (b(5) xnor y(3)) and
           (b(4) xnor y(2)) and
           (b(3) xnor y(1)) and
-          (b(2) xnor y(0));
+          (b(2) xnor y(0)) and
+          b(10);
   
 end pix_arch;
