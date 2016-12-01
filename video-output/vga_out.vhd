@@ -72,5 +72,5 @@ begin
 	x <= cnt_x;
 	y <= cnt_y;
 
-	l1: timebase port map(clk, reset, frame, vbullet, hsync, vsync, x_c, y_c);
+	l1: timebase port map(clk, reset, pixel_i, frame, vbullet, hsync, vsync, x_c, y_c);
 end arch;

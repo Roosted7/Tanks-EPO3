@@ -35,7 +35,11 @@ begin
 				pixel_i <= '1';
 				
 				if((to_integer(unsigned(cnt_row)) > 2) and (to_integer(unsigned(cnt_row)) < 19)) then
-					x_i <= y_i; -- create an x signal that shows when to go to the next pixel in a row
+					if(to_integer(unsigned(cnt_frame)) > 7) and (to_integer(unsigned(cnt_frame)) < 472) then
+						x_i <= '1'; -- create an x signal that shows when to go to the next pixel in a row
+					else
+						x_i <= '0';
+					end if;
 				else
 					x_i <= '0';
 				end if;
