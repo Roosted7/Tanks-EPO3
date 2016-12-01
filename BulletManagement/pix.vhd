@@ -10,13 +10,13 @@ end pix;
 architecture pix_arch of pix is
 begin
   
-  draw <= (b(9) and x(3)) and 
-          (b(8) and x(2)) and 
-          (b(7) and x(1)) and 
-          (b(6) and x(0)) and
-          (b(5) and y(3)) and
-          (b(4) and y(2)) and
-          (b(3) and y(1)) and
-          (b(2) and y(0));
+  draw <= (b(9) xnor x(3)) and 
+          (b(8) xnor x(2)) and 
+          (b(7) xnor x(1)) and 
+          (b(6) xnor x(0)) and
+          (b(5) xnor y(3)) and
+          (b(4) xnor y(2)) and
+          (b(3) xnor y(1)) and
+          (b(2) xnor y(0));
   
 end pix_arch;
