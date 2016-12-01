@@ -8,7 +8,7 @@ entity reg_11 is
         q       : out std_logic_vector(10 downto 0));
 end reg_11;
 
-architecture reg_11_behavioral of reg_11 is
+architecture reg_11_arch of reg_11 is
  
 begin
   
@@ -23,4 +23,4 @@ begin
     end if;
   end process;
     
-end reg_11_behavioral;
+end reg_11_arch;
