@@ -91,7 +91,7 @@ begin
     b2_gen: gen_bullet port map (fire_b2, tank_t2, gen_out_b2);
     
     b1_new: newposition port map (b1, newpos_out_b1);
-    b2_new: newposition port map (b2, newpos_out_b2);
+    b2_new: newposition port map (b2, newpos_out_b1);
     
     mux_b1: mux_11 port map (gen_out_b1, newpos_out_b1, l_b1, postmux_b1);
     mux_b2: mux_11 port map (gen_out_b2, newpos_out_b2, l_b2, postmux_b2);
