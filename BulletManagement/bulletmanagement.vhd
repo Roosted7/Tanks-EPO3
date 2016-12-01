@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity bullet_management is
+entity bullet_mod is
   port( bullet_clk  :   in std_logic;
         reset       :   in std_logic;
   
@@ -25,9 +25,9 @@ entity bullet_management is
         
         draw_b1     :   out std_logic;
         draw_b2     :   out std_logic);
-end bullet_management;
+end bullet_mod;
 
-architecture bm_main of bullet_management is
+architecture bullet_mod_arch of bullet_mod is
   
   component reg_11
     port( clk   : in std_logic;
@@ -133,7 +133,7 @@ begin
     tank_t1(1 downto 0)<=dir_t1;
     tank_t2(1 downto 0)<=dir_t2;
     
-end bm_main;
+end bullet_mod_arch;
     
         
         
