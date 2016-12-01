@@ -57,7 +57,7 @@ begin
 		if((reset = '1') and (rising_edge(clk))) then
 			--
 		elsif(rising_edge(pixel_i)) then
-			if((pixel_i = '1') and (x_c = '0')) then
+			if(x_c = '0') then
 				r <= '0';
 				g <= '0';
 				b <= '0';
@@ -69,8 +69,8 @@ begin
 		end if;
 	end process;
 
-	x 		<= cnt_x;
-	y 		<= cnt_y;
+	x <= cnt_x;
+	y <= cnt_y;
 
 	l1: timebase port map(clk, reset, frame, vbullet, hsync, vsync, x_c, y_c);
 end arch;
