@@ -11,13 +11,13 @@ end timebase;
 
 architecture arch of timebase is
 	signal cnt_pixel: 		std_logic_vector(2 downto 0);
-	signal cnt_row:			std_logic_vector(5 downto 0);
+	signal cnt_row:			std_logic_vector(4 downto 0);
 	signal cnt_frame:		std_logic_vector(9 downto 0);
 	signal cnt_yblck:		std_logic_vector(4 downto 0);
 
 	signal x_i, y_i:		std_logic;
 	signal pixel_i:			std_logic;
-	signal row:				std_logic;
+	signal row_i:			std_logic;
 	signal frame_i:			std_logic;
 	signal vbullet_i:		std_logic;
 
@@ -29,17 +29,46 @@ begin
 	begin
 		if(rising_edge(clk)) then
 			if(reset = '1') then
-				pixel_curr <= p0;
+				cnt_pixel 	<= (others => '0');
+				cnt_row 	<= (others => '0');
+				cnt_frame 	<= (others => '0');
+				
+				pixel_i 	<= '0';
+				row_i		<= '0';
+				frame_i		<= '0';
 			else
-				pixel_curr <= pixel_next;
+				cnt_pixel <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_pixel)) + 1, 3));
+
+				if(to_integer(unsigned(cnt_pixel)) = 0) then
+					pixel_i <= '1';
+
+					cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 5));
+
+					if(to_integer(unsigned(cnt_row)) = 0) then
+						row_i <= '1';
+
+						cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_frame)) + 1, 10));
+
+						if(to_integer(unsigned(cnt_frame)) = 7) then
+							frame_i <= '0';
+						elsif(to_integer(unsigned(cnt_frame)) = 524) then
+							cnt_frame <= (others => '0');
+						elsif(to_integer(unsigned(cnt_frame)) = 471) then
+							frame_i	<= '1';
+						end if;
+					elsif(to_integer(unsigned(cnt_row)) = 27) then
+						cnt_row <= (others => '0');
+					elsif(to_integer(unsigned(cnt_row)) = 14) then
+						row_i	<= '0';
+					end if;
+				elsif(to_integer(unsigned(cnt_pixel)) = 6) then
+					cnt_pixel <= (others => '0');
+				elsif(to_integer(unsigned(cnt_pixel)) = 4) then
+					pixel_i	<= '0';
+				end if;
 			end if;
 		end if;
 	end process;
-
-	process(pixel_curr)
-	begin
-		if(pixel_curr = p0) then
-			
 
 --	process(reset, clk) -- create pixel_i clock
 --	begin
@@ -53,7 +82,7 @@ begin
 --
 --				if(to_integer(unsigned(cnt_pixel)) = 0) then
 --					pixel_i <= '1';
-					--
+--
 --					if((to_integer(unsigned(cnt_row)) > 2) and (to_integer(unsigned(cnt_row)) < 19)) then
 --						if(to_integer(unsigned(cnt_frame)) > 7) and (to_integer(unsigned(cnt_frame)) < 472) then
 --							x_i <= '1'; -- create an x signal that shows when to go to the next pixel in a row
@@ -154,33 +183,9 @@ begin
 --		end if;
 --	end process;
 
-	frame 	<= row;
+	frame 	<= frame_i;
 	vbullet <= vbullet_i;
 	pixel 	<= pixel_i;
-	x_c		<= x_i;
+	x_c		<= row_i;
 	y_c		<= y_i;
 end arch;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
