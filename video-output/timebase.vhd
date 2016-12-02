@@ -36,8 +36,10 @@ begin
 		end if;
 	end process;
 
-	
-
+	process(pixel_curr)
+	begin
+		if(pixel_curr = p0) then
+			
 
 --	process(reset, clk) -- create pixel_i clock
 --	begin
