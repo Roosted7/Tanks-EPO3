@@ -2,11 +2,11 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity timebase_tb is
-end timebase_tb;
+entity vga_out_tb is
+end vga_out_tb;
 
-architecture arch of timebase_tb is
-	component timebase is
+architecture arch of vga_out_tb is
+	component vga_out is
 		port(
 		clk, reset:							in  std_logic;
 		rgb: 								in  std_logic_vector(2 downto 0);
@@ -15,7 +15,7 @@ architecture arch of timebase_tb is
 		frame, vbullet:						out std_logic;
 		hsync, vsync: 						out std_logic;
 		x, y:								out std_logic_vector(3 downto 0));
-	end component timebase;
+	end component vga_out;
 
 	signal clk, reset, frame, vbullet, hsync, vsync, r, g, b: std_logic;
 	signal x, y: std_logic_vector(3 downto 0);
@@ -30,5 +30,5 @@ begin
 				'1' after 82 	ns when clk /= '1' else '0' after 82 ns;
 	rgb   <=	"111" 	after 0 	ns;
 
-	l1: timebase port map(clk, reset, rgb, r, g, b, frame, vbullet, hsync, vsync, x, y);
+	l1: vga_out port map(clk, reset, rgb, r, g, b, frame, vbullet, hsync, vsync, x, y);
 end arch;

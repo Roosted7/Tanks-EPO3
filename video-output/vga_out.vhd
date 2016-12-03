@@ -2,18 +2,18 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity timebase is
+entity vga_out is
 	port(
-		clk, reset:							in  std_logic;
-		rgb: 								in  std_logic_vector(2 downto 0);
-		r, g, b:							out std_logic;
-		--pixel, row:							out std_logic;
-		frame, vbullet:						out std_logic;
-		hsync, vsync: 						out std_logic;
-		x, y:								out std_logic_vector(3 downto 0));
-end timebase;
+		clk, reset:			in  std_logic;
+		rgb: 				in  std_logic_vector(2 downto 0);
+		r, g, b:			out std_logic;
+		--pixel, row:		out std_logic;
+		frame, vbullet:		out std_logic;
+		hsync, vsync: 		out std_logic;
+		x, y:				out std_logic_vector(3 downto 0));
+end vga_out;
 
-architecture arch of timebase is
+architecture arch of vga_out is
 	signal cnt_pixel: 		std_logic_vector(2 downto 0);
 	signal cnt_row:			std_logic_vector(4 downto 0);
 	signal cnt_frame:		std_logic_vector(9 downto 0);
@@ -31,13 +31,13 @@ begin
 	begin
 		if(rising_edge(clk)) then
 			if(reset = '1') then
-				cnt_pixel 	<= (others => '0');
-				cnt_row 	<= (others => '0'); --vo
+				cnt_pixel 	<= (others => '0'); --vo
+				cnt_row 	<= (others => '0');
 				cnt_frame 	<= (others => '0');
-				
+
 				cnt_x 		<= (others => '0');
 				cnt_y 		<= (others => '1');
-				
+
 				--pixel_i 	<= '0';
 				--row_i		<= '0';
 				frame_i		<= '0';
@@ -55,22 +55,17 @@ begin
 				if(to_integer(unsigned(cnt_pixel)) = 0) then -- rising_edge(pixel)
 					--pixel_i <= '1';
 
-					if((to_integer(unsigned(cnt_row)) > 2) and (to_integer(unsigned(cnt_row)) < 19)) then
-						if(to_integer(unsigned(cnt_frame)) > 8) and (to_integer(unsigned(cnt_frame)) < 473) then
-							if(to_integer(unsigned(cnt_x)) = 15) then
-								cnt_x <= (others => '0');
-							else
-								cnt_x <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_x)) + 1, 4));
-							end if;
-
-							r <= rgb(2);
-							g <= rgb(1);
-							b <= rgb(0);
+					if((to_integer(unsigned(cnt_row)) > 2) and (to_integer(unsigned(cnt_row)) < 19) and
+					to_integer(unsigned(cnt_frame)) > 8) and (to_integer(unsigned(cnt_frame)) < 473) then
+						if(to_integer(unsigned(cnt_x)) = 15) then
+							cnt_x <= (others => '0');
 						else
-							r <= '0';
-							g <= '0';
-							b <= '0';
+							cnt_x <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_x)) + 1, 4));
 						end if;
+
+						r <= rgb(2);
+						g <= rgb(1);
+						b <= rgb(0);
 					else
 						r <= '0';
 						g <= '0';
