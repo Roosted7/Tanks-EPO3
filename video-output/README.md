@@ -10,7 +10,7 @@ dan zit er een strook van 5 blokken breed aan elke kant van het echte scherm
 
 horizontaal worden dat 22 blokken van 29 pixels, verticaal zijn het gewoon 480 lijnen
 
-horizontaal in de hsync is A=1, B=4, C=2 en D=22 ([Wikipedia voor letters](https://en.wikipedia.org/wiki/Video_Graphics_Array#Signal_timings "Wiki"))
+horizontaal in de hsync is A=1, B=3, C=2 en D=22 ([Wikipedia voor letters](https://en.wikipedia.org/wiki/Video_Graphics_Array#Signal_timings "Wiki"))
 
 verticaal kunnen gewoon de lijnen aangehouden worden voor de letters zoals ze op wiki staan
 
