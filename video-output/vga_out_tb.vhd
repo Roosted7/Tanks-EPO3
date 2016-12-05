@@ -49,8 +49,6 @@ begin
 			rgb <= "000";
 		end if;
 	end process;
-		
-
 
 	l1: vga_out port map(clk, reset, rgb, r, g, b, frame, vbullet, hsync, vsync, x, y);
 end arch;
