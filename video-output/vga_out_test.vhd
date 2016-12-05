@@ -20,7 +20,7 @@ architecture arch of vga_out_test is
 		x, y:								out std_logic_vector(3 downto 0));
 	end component vga_out;
 
-	signal clk, reset, frame, vbullet, hsync, vsync, r, g, b: std_logic;
+	signal frame, vbullet: std_logic;
 	signal x, y: std_logic_vector(3 downto 0);
 	signal rgb: std_logic_vector(2 downto 0);
 
