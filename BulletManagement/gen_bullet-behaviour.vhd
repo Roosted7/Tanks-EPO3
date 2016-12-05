@@ -26,22 +26,22 @@ process (l, fire_b1, dir_t1, x_t1, y_t1)
 begin 
 if ((l = '1') and (fire_b1 = "101")) then 
 	if  	( (dir_t1 = "00") and not(x_t1 = "0001") ) then 
-			x_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(x_t1)) - 1, 4)); 
+			x_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(x_t1)) - 2, 4)); 
 			y_b1 <= y_t1; 
 			l_b1 <= '1' ;
 	elsif ( dir_t1 = "01" and not(y_t1 = "0001") ) then 
 			x_b1 <= x_t1; 
-			y_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(y_t1)) - 1, 4));
+			y_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(y_t1)) - 2, 4));
 			l_b1 <= '1' ;
 
 	elsif ( dir_t1 = "10" and not(x_t1 = "1110") ) then 
-			x_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(x_t1)) + 1, 4));
+			x_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(x_t1)) + 2, 4));
 			y_b1 <= y_t1;
 			l_b1 <= '1' ;
  
 	elsif ( dir_t1 = "11" and not(y_t1 = "1110") ) then
 			x_b1 <= x_t1; 
-			y_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(y_t1)) + 1, 4));
+			y_b1 <= std_logic_vector(to_unsigned(to_integer(unsigned(y_t1)) + 2, 4));
 			l_b1 <= '1' ;	
 
 	else  
