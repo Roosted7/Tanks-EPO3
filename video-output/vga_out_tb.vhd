@@ -8,18 +8,23 @@ end vga_out_tb;
 architecture arch of vga_out_tb is
 	component vga_out is
 		port(
-		clk, reset:							in  std_logic;
-		rgb: 								in  std_logic_vector(2 downto 0);
-		r, g, b:							out std_logic;
-		--pixel, row:							out std_logic;
-		frame, vbullet:						out std_logic;
-		hsync, vsync: 						out std_logic;
-		x, y:								out std_logic_vector(3 downto 0));
+		clk, reset:		in  std_logic;
+		rgb: 			in  std_logic_vector(2 downto 0);
+		r, g, b:		out std_logic;
+		frame, vbullet:	out std_logic;
+		hsync, vsync: 	out std_logic;
+		x, y:			out std_logic_vector(3 downto 0));
 	end component vga_out;
+
+	component vga_test is
+		port(
+			x, y:	in  std_logic_vector(3 downto 0);
+			rgb:	out std_logic_vector(2 downto 0));
+	end component vga_test;
 
 	signal clk, reset, frame, vbullet, hsync, vsync, r, g, b: std_logic;
 	signal x, y: std_logic_vector(3 downto 0);
-	signal rgb: std_logic_vector(2 downto 0);
+	signal rgb:  std_logic_vector(2 downto 0);
 
 begin
 	reset <= 	'1' after 0 	ns,
@@ -29,26 +34,7 @@ begin
 	clk   <= 	'0' after 0 	ns,
 				'1' after 82 	ns when clk /= '1' else '0' after 82 ns;
 
-	process(x, y)
-	begin
-		if(y = "0111" or y = "1000") then
-			rgb <= "111";
-		elsif(x = "0010") then
-			rgb <= "100";
-		elsif(x = "0011") then
-			rgb <= "010";
-		elsif(x = "0100") then
-			rgb <= "001";
-		elsif(x = "1010") then
-			rgb <= "110";
-		elsif(x = "1011") then
-			rgb <= "011";
-		elsif(x = "1100") then
-			rgb <= "101";
-		else
-			rgb <= "000";
-		end if;
-	end process;
+	l1: vga_out  port map(clk, reset, rgb, r, g, b, frame, vbullet, hsync, vsync, x, y);
 
-	l1: vga_out port map(clk, reset, rgb, r, g, b, frame, vbullet, hsync, vsync, x, y);
+	l2: vga_test port map(x, y, rgb);
 end arch;
