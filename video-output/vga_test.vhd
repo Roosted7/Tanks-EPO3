@@ -31,7 +31,7 @@ begin
 --		end if;
 --	end process;
 
-	process(x, y)
+	process(x, y) --vo
 	begin
 		if(x = "0010" or x = "1101" or y = "0010" or y = "1101") then
 			rgb <= "101";
@@ -42,4 +42,3 @@ begin
 		end if;
 	end process;
 end arch;
---vo

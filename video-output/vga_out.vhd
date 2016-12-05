@@ -36,7 +36,7 @@ begin
 				cnt_frame 	<= (others => '0');
 
 				cnt_x 		<= (others => '0');
-				cnt_y 		<= (others => '1');
+				cnt_y 		<= (others => '0');
 
 				--pixel_i 	<= '0';
 				--row_i		<= '0';
@@ -78,6 +78,14 @@ begin
 						hsync <= '1';
 					end if;
 
+--					if(to_integer(unsigned(cnt_row)) = 0) then
+--						hsync <= '1';
+--					elsif(to_integer(unsigned(cnt_row)) = 23) then
+--						hsync <= '0';
+--					elsif(to_integer(unsigned(cnt_row)) = 26) then
+--						hsync <= '1';
+--					end if;						
+
 					cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 5));
 
 					if(to_integer(unsigned(cnt_row)) = 0) then -- rising_edge(row)
@@ -87,6 +95,7 @@ begin
 
 						if((to_integer(unsigned(cnt_frame)) >= 490) and (to_integer(unsigned(cnt_frame)) <= 491)) then
 							vsync <= '0'; -- create vsync signal
+							cnt_y <= (others => '1');
 						else
 							vsync <= '1';
 						end if;
@@ -104,7 +113,7 @@ begin
 						if((to_integer(unsigned(cnt_frame)) > 7) and (to_integer(unsigned(cnt_frame)) < 472)) then
 							cnt_yblck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_yblck)) + 1, 5));
 		
-							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create an y signal that shows when to go to the next row in the frame
+							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create a y signal that shows when to go to the next row in the frame
 								if(to_integer(unsigned(cnt_y)) = 15) then
 									cnt_y <= (others => '0');
 								else
