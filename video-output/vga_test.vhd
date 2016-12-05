@@ -33,7 +33,7 @@ begin
 
 	process(x, y)
 	begin
-		if(x = "0010" or x = "1101" or y = "0010" or "1101") then
+		if(x = "0010" or x = "1101" or y = "0010" or y = "1101") then
 			rgb <= "101";
 		elsif((x = "0111" or x = "1000") and (y = "0111" or y = "1000")) then
 			rgb <= "100";
