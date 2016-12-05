@@ -108,7 +108,7 @@ begin
 --	end process;
 
 
-	process(x, y) -- tanks
+	process(cnt_frame, x, y) -- tanks
 	begin
 		if(to_integer(unsigned(cnt_frame)) < 64) then
 			if(y = "0000" and x = "0000") then
