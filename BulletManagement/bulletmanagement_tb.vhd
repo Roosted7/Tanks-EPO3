@@ -81,23 +81,23 @@ begin
   bullet_clk 	<= 	not bullet_clk after 5 ns;
   reset		<= 	'1' after 0 ns,
 			'0' after 20 ns,
-			'1' after 500 ns;
+			'1' after 550 ns;
 
   fire_b1	<=	"000" after 0 ns,
 			"101" after 50 ns,
-			"000" after 100 ns,
-			"101" after 150 ns,
-			"000" after 200 ns;
+			"000" after 150 ns,
+			"101" after 200 ns,
+			"000" after 250 ns;
   l_t1		<=	'1' after 0 ns;
   x_t1		<=	"1110" after 0 ns;
   y_t1		<=	"0001" after 0 ns;
   dir_t1	<=	"00" after 0 ns;
   
   fire_b2	<=	"000" after 0 ns,
-			"101" after 150 ns,
-			"000" after 200 ns,
-			"101" after 250 ns,
-			"000" after 300 ns;
+			"101" after 200 ns,
+			"000" after 250 ns,
+			"101" after 300 ns,
+			"000" after 335 ns;
   l_t2		<=	'1' after 0 ns;
   x_t2		<=	"0001" after 0 ns;
   y_t2		<=	"1110" after 0 ns;
@@ -108,8 +108,18 @@ begin
   y_vga		<=	"0000" after 0 ns,
 			"0001" after 50 ns;
 
-  feedback_b1	<=	'0' after 0 ns,
-			'1' after 75 ns;
-  feedback_b2	<=	'0' after 0 ns;
+  feedback_b1	<=	'1' after 0 ns,
+			'0' after 100 ns,
+			'1' after 150 ns;
+  feedback_b2	<=	'1' after 0 ns;
     
 end bullet_mod_tb_arch;
+
+
+
+
+
+
+
+
+
