@@ -1,0 +1,24 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+entity input_system is
+   port(
+	p_l_1, p_l_2		:in    std_logic;
+	p_r_1, p_r_2	   :in	   std_logic;
+	p_u_1, p_u_2		:in    std_logic;
+	p_d_1, p_d_2		:in    std_logic;
+	p_f_1, p_f_2		:in    std_logic;
+        frame			:in    std_logic;
+        clk  			:in    std_logic;
+	reset		:in    std_logic;
+        t1_e1 			:out   std_logic_vector(2 downto 0);
+        t2_e2 			:out   std_logic_vector(2 downto 0));
+end input_system;
+
+
+
+
+
+
+
+

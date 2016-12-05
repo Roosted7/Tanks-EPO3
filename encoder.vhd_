@@ -1,0 +1,13 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+entity encoder is
+   port(p_left :in    std_logic;
+        p_right:in    std_logic;
+        p_up   :in    std_logic;
+        p_down :in    std_logic;
+        p_fire :in    std_logic;
+        t_e    :out   std_logic_vector(2 downto 0));
+end encoder;
+
+
