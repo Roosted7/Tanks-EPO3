@@ -30,7 +30,7 @@ begin
 	process(reset, clk, rgb)
 	begin
 		if(rising_edge(clk)) then
-			if(reset = '1') then
+			if(reset = '0') then
 				cnt_pixel 	<= (others => '0'); --vo
 				cnt_row 	<= (others => '0');
 				cnt_frame 	<= (others => '0');
