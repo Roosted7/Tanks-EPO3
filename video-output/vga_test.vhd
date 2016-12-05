@@ -33,12 +33,84 @@ begin
 
 	process(x, y) --vo
 	begin
-		if(x = "0010" or x = "1101" or y = "0010" or y = "1101") then
-			rgb <= "101";
-		elsif((x = "0111" or x = "1000") and (y = "0111" or y = "1000")) then
-			rgb <= "100";
+		if((x = "0001" and y = "1110") or
+		(x = "0010" and y = "1101") or
+		(x = "0010" and y = "1110") or
+		(x = "0011" and y = "1010") or
+		(x = "0011" and y = "1011") or
+		(x = "0011" and y = "1100") or
+		(x = "0011" and y = "1101") or
+		(x = "0100" and y = "0111") or
+		(x = "0100" and y = "1000") or
+		(x = "0100" and y = "1001") or
+		(x = "0100" and y = "1010") or
+		(x = "0100" and y = "1011") or
+		(x = "0100" and y = "1100") or
+		(x = "0101" and y = "0101") or
+		(x = "0101" and y = "0110") or
+		(x = "0101" and y = "0111") or
+		(x = "0101" and y = "1000") or
+		(x = "0101" and y = "1001") or
+		(x = "0101" and y = "1010") or
+		(x = "0110" and y = "0011") or
+		(x = "0110" and y = "0100") or
+		(x = "0110" and y = "0101") or
+		(x = "0110" and y = "0110") or
+		(x = "0110" and y = "0111") or
+		(x = "0110" and y = "1000") or
+		(x = "0110" and y = "1001") or
+		(x = "0111" and y = "0010") or
+		(x = "0111" and y = "0011") or
+		(x = "0111" and y = "0100") or
+		(x = "0111" and y = "0101") or
+		(x = "0111" and y = "0111") or
+		(x = "0111" and y = "1000") or
+		(x = "0111" and y = "1001") or
+		(x = "1000" and y = "0010") or
+		(x = "1000" and y = "0011") or
+		(x = "1000" and y = "0100") or
+		(x = "1000" and y = "0110") or
+		(x = "1000" and y = "0111") or
+		(x = "1000" and y = "1000") or
+		(x = "1000" and y = "1001") or
+		(x = "1000" and y = "1100") or
+		(x = "1001" and y = "0001") or
+		(x = "1001" and y = "0010") or
+		(x = "1001" and y = "0011") or
+		(x = "1001" and y = "0101") or
+		(x = "1001" and y = "0110") or
+		(x = "1001" and y = "0111") or
+		(x = "1001" and y = "1000") or
+		(x = "1001" and y = "1001") or
+		(x = "1001" and y = "1010") or
+		(x = "1001" and y = "1011") or
+		(x = "1001" and y = "1100") or
+		(x = "1010" and y = "0001") or
+		(x = "1010" and y = "0010") or
+		(x = "1010" and y = "0101") or
+		(x = "1010" and y = "0110") or
+		(x = "1010" and y = "0111") or
+		(x = "1010" and y = "1001") or
+		(x = "1010" and y = "1010") or
+		(x = "1010" and y = "1011") or
+		(x = "1011" and y = "0001") or
+		(x = "1011" and y = "0110") or
+		(x = "1011" and y = "1000") or
+		(x = "1011" and y = "1001") or
+		(x = "1011" and y = "1010") or
+		(x = "1011" and y = "1011") or
+		(x = "1100" and y = "0001") or
+		(x = "1100" and y = "1000") or
+		(x = "1100" and y = "1001") or
+		(x = "1100" and y = "1010") or
+		(x = "1101" and y = "0111") or
+		(x = "1101" and y = "1000") or
+		(x = "1101" and y = "1001") or
+		(x = "1110" and y = "0110") or
+		(x = "1110" and y = "0111")) then
+			rgb <= "011";
 		else
-			rgb <= "001";
+			rgb <= "111";
 		end if;
 	end process;
 end arch;
