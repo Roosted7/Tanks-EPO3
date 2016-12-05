@@ -19,7 +19,7 @@ begin
 			if(to_integer(unsigned(cnt_frame)) = 127) then
 				cnt_frame <= (others => '0');
 			else
-				cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_x)) + 1, 7));
+				cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_frame)) + 1, 7));
 			end if;
 		end if;
 	end process;
