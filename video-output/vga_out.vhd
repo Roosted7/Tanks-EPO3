@@ -7,7 +7,7 @@ entity vga_out is
 		clk, reset:			in  std_logic;
 		rgb: 				in  std_logic_vector(2 downto 0);
 		r, g, b:			out std_logic;
-		frame, vbullet:		out std_logic;
+		frame, bullet:		out std_logic;
 		hsync, vsync: 		out std_logic;
 		x, y:				out std_logic_vector(3 downto 0));
 end vga_out;
@@ -21,13 +21,13 @@ architecture arch of vga_out is
 	signal cnt_x, cnt_y:	std_logic_vector(3 downto 0);
 
 	signal frame_i:			std_logic;
-	signal vbullet_i:		std_logic;
+	signal bullet_i:		std_logic;
 
 begin
 	process(reset, clk, rgb)
 	begin
 		if(rising_edge(clk)) then
-			if(reset = '0') then
+			if(reset = '0') then -- reset
 				cnt_pixel 	<= (others => '0');
 				cnt_row 	<= (others => '0');
 				cnt_frame 	<= (others => '0');
@@ -36,7 +36,7 @@ begin
 				cnt_y 		<= (others => '0');
 
 				frame_i		<= '0';
-				vbullet_i	<= '0';
+				bullet_i	<= '0';
 
 				hsync		<= '0';
 				vsync		<= '0';
@@ -73,7 +73,7 @@ begin
 
 					cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 5));
 
-					if(to_integer(unsigned(cnt_row)) = 0) then -- rising_edge(row)
+					if(to_integer(unsigned(cnt_row)) = 0) then -- rising_edge(row of pixels)
 						cnt_frame <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_frame)) + 1, 10));
 
 						if((to_integer(unsigned(cnt_frame)) >= 490) and (to_integer(unsigned(cnt_frame)) <= 491)) then
@@ -90,14 +90,14 @@ begin
 						elsif(to_integer(unsigned(cnt_frame)) = 472) then -- rising_edge(frame)
 							frame_i <= '1';
 
-							vbullet_i <= not(vbullet_i);
+							bullet_i <= not(bullet_i); -- create bullet speed signal
 						end if;
 		
 						if((to_integer(unsigned(cnt_frame)) > 7) and (to_integer(unsigned(cnt_frame)) < 472)) then
 							cnt_yblck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_yblck)) + 1, 5));
 		
-							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create a y signal that shows when to go to the next row in the frame
-								if(to_integer(unsigned(cnt_y)) = 15) then
+							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create a y signal that shows when 
+								if(to_integer(unsigned(cnt_y)) = 15) then -- to go to the next pixel row
 									cnt_y <= (others => '0');
 								else
 									cnt_y <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_y)) + 1, 4));
@@ -119,7 +119,7 @@ begin
 	end process;
 
 	frame 	<= frame_i;
-	vbullet <= vbullet_i;
+	bullet 	<= bullet_i;
 	x		<= cnt_x;
 	y		<= cnt_y;
 end arch;
