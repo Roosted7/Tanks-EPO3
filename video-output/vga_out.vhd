@@ -48,7 +48,7 @@ begin
 			else
 				cnt_clk <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_clk)) + 1, 3));
 
-				if(to_integer(unsigned(cnt_clk)) = 0) then -- rising_edge(pixel)
+				if(to_integer(unsigned(cnt_clk)) = 0) then -- high when going to the next cluster
 					if((to_integer(unsigned(cnt_cluster)) > 2) and (to_integer(unsigned(cnt_cluster)) < 19) and
 					to_integer(unsigned(cnt_row)) > 8) and (to_integer(unsigned(cnt_row)) < 473) then
 						if(to_integer(unsigned(cnt_x)) = 15) then
@@ -74,7 +74,7 @@ begin
 
 					cnt_cluster <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_cluster)) + 1, 5));
 
-					if(to_integer(unsigned(cnt_cluster)) = 0) then -- rising_edge(row of pixels)
+					if(to_integer(unsigned(cnt_cluster)) = 0) then -- high when going to the next row
 						cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 10));
 
 						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
