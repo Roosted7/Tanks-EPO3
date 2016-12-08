@@ -8,5 +8,7 @@ end delete_bullet;
 
 architecture delete_bullet_arch of delete_bullet is  
 begin
+  
  l_postdelete <= l_postmux and feedback and (not coll);
+  
 end delete_bullet_arch;
