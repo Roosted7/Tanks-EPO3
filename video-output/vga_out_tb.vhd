@@ -18,6 +18,7 @@ architecture arch of vga_out_tb is
 
 	component vga_test is
 		port(
+			frame:	in  std_logic;
 			x, y:	in  std_logic_vector(3 downto 0);
 			rgb:	out std_logic_vector(2 downto 0));
 	end component vga_test;
@@ -36,5 +37,5 @@ begin
 
 	l1: vga_out  port map(clk, reset, rgb, r, g, b, frame, bullet, hsync, vsync, x, y);
 
-	l2: vga_test port map(x, y, rgb);
+	l2: vga_test port map(frame, x, y, rgb);
 end arch;

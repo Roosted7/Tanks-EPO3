@@ -10,7 +10,7 @@ entity vga_test is
 end vga_test;
 
 architecture arch of vga_test is
-signal cnt_frame: std_logic_vector(6 downto 0);
+signal cnt_frame: std_logic_vector(6 downto 0) := (others => '0');
 
 begin
 	process(frame)
@@ -24,7 +24,7 @@ begin
 		end if;
 	end process;
 
-	process(cnt_frame, x, y) -- tanks
+	process(frame, x, y) -- tanks
 	begin
 		if(to_integer(unsigned(cnt_frame)) < 64) then
 			if(y = "0000" and x = "0000") then
