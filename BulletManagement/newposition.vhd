@@ -24,7 +24,7 @@ begin
 
 	process(x, y, dir)
 	begin
-		if (x="0000" or y="0000" or x="1111" or y="1111" or l='0') then
+		if (x="0000" or y="0000" or x="1111" or y="1111") then
 			x_out <= x;
 			y_out <= y;
 			life <= '0';
