@@ -6,18 +6,7 @@ entity delete_bullet is
         l_postdelete                : out std_logic);
 end delete_bullet;
 
-architecture delete_bullet_arch of delete_bullet is
-
-  signal feedback_inv, sel  : std_logic;
-  
+architecture delete_bullet_arch of delete_bullet is  
 begin
-  --feedback: '0' when death command, '1' when stay alive command.
-  feedback_inv <= not(feedback);
-  
-  --death command either from feedback or bullet_coll block
-  sel <= feedback_inv or coll;
-  
-  --when death command, force existence bit zero, else keep as it was.
-  l_postdelete <= '0' when (sel='1') else l_postmux;
-  
+ l_postdelete <= l_postmux and feedback and (not coll);
 end delete_bullet_arch;
