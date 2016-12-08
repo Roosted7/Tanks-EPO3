@@ -98,7 +98,7 @@ begin
 							cnt_yblck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_yblck)) + 1, 5));
 		
 							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create a y signal that shows when 
-								if(to_integer(unsigned(cnt_y)) = 15) then -- to go to the next pixel row
+								if(to_integer(unsigned(cnt_y)) = 15) then -- to go to the next cluster row
 									cnt_y <= (others => '0');
 								else
 									cnt_y <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_y)) + 1, 4));
