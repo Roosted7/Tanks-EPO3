@@ -9,7 +9,8 @@ entity vga_out is
 		r, g, b:			out std_logic;
 		frame, bullet:		out std_logic;
 		hsync, vsync: 		out std_logic;
-		x, y:				out std_logic_vector(3 downto 0));
+		x, y:				out std_logic_vector(3 downto 0);
+		collision:			out std_logic);
 end vga_out;
 
 architecture arch of vga_out is
@@ -35,6 +36,8 @@ begin
 
 				cnt_x 		<= (others => '0');
 				cnt_y 		<= (others => '0');
+
+				collision	<= '0';
 
 				frame_i		<= '0';
 				bullet_i	<= '0';
@@ -98,6 +101,7 @@ begin
 							cnt_yblck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_yblck)) + 1, 5));
 		
 							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create a y signal that shows when 
+								collision <= '0';
 								if(to_integer(unsigned(cnt_y)) = 15) then -- to go to the next cluster row
 									cnt_y <= (others => '0');
 								else
@@ -105,6 +109,7 @@ begin
 								end if;
 							elsif(to_integer(unsigned(cnt_yblck)) = 28) then
 								cnt_yblck <= (others => '0');
+								collision <= '1';
 							end if;
 						else
 							cnt_yblck <= (others => '0');

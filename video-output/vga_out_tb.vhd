@@ -13,7 +13,8 @@ architecture arch of vga_out_tb is
 		r, g, b:		out std_logic;
 		frame, bullet:	out std_logic;
 		hsync, vsync: 	out std_logic;
-		x, y:			out std_logic_vector(3 downto 0));
+		x, y:			out std_logic_vector(3 downto 0);
+		collision:		out std_logic);
 	end component vga_out;
 
 	component vga_test is
@@ -23,7 +24,7 @@ architecture arch of vga_out_tb is
 			rgb:	out std_logic_vector(2 downto 0));
 	end component vga_test;
 
-	signal clk, reset, frame, bullet, hsync, vsync, r, g, b: std_logic;
+	signal clk, reset, frame, bullet, hsync, vsync, r, g, b, collision: std_logic;
 	signal x, y: std_logic_vector(3 downto 0);
 	signal rgb:  std_logic_vector(2 downto 0);
 
@@ -35,7 +36,7 @@ begin
 	clk   <= 	'0' after 0 	ns,
 				'1' after 82 	ns when clk /= '1' else '0' after 82 ns;
 
-	l1: vga_out  port map(clk, reset, rgb, r, g, b, frame, bullet, hsync, vsync, x, y);
+	l1: vga_out  port map(clk, reset, rgb, r, g, b, frame, bullet, hsync, vsync, x, y, collision);
 
 	l2: vga_test port map(frame, x, y, rgb);
 end arch;
