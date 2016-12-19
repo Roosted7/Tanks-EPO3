@@ -26,7 +26,7 @@ begin
 
 	process(frame, x, y) -- tanks
 	begin
-		if(to_integer(unsigned(cnt_frame)) < 64) then
+		if(to_integer(unsigned(cnt_frame)) > 64) then
 			if(y = "0000" and x = "0000") then
 			rgb <= "100";
 		elsif(y = "0000" and x = "0001") then

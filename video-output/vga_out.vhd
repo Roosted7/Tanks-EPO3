@@ -69,10 +69,16 @@ begin
 						b <= '0';
 					end if;
 
-					if((to_integer(unsigned(cnt_cluster)) > 22) and (to_integer(unsigned(cnt_cluster)) < 26)) then
-						hsync <= '0';
-					else
+--					if((to_integer(unsigned(cnt_cluster)) > 22) and (to_integer(unsigned(cnt_cluster)) < 26)) then
+--						hsync <= '0';
+--					else
+--						hsync <= '1';
+--					end if;
+
+					if(to_integer(unsigned(cnt_cluster)) = 0 or to_integer(unsigned(cnt_cluster)) = 26) then
 						hsync <= '1';
+					elsif(to_integer(unsigned(cnt_cluster)) = 23) then
+						hsync <= '0';
 					end if;
 
 					cnt_cluster <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_cluster)) + 1, 5));
@@ -80,11 +86,18 @@ begin
 					if(to_integer(unsigned(cnt_cluster)) = 0) then -- high when going to the next row
 						cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 10));
 
-						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
-							vsync <= '0'; -- create vsync signal
-							cnt_y <= (others => '1');
-						else
+--						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
+--							vsync <= '0'; -- create vsync signal
+--							cnt_y <= (others => '1');
+--						else
+--							vsync <= '1';
+--						end if;
+
+						if(to_integer(unsigned(cnt_row)) = 0 or to_integer(unsigned(cnt_row)) = 492) then
 							vsync <= '1';
+						elsif(to_integer(unsigned(cnt_row)) = 490) then
+							vsync <= '0';
+							cnt_y <= (others => '1');
 						end if;
 		
 						if(to_integer(unsigned(cnt_row)) = 8) then
@@ -101,8 +114,8 @@ begin
 							cnt_yblck <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_yblck)) + 1, 5));
 		
 							if(to_integer(unsigned(cnt_yblck)) = 0) then  -- create a y signal that shows when 
-								collision <= '0';
-								if(to_integer(unsigned(cnt_y)) = 15) then -- to go to the next cluster row
+								collision <= '0';						  -- to go to the next cluster row
+								if(to_integer(unsigned(cnt_y)) = 15) then
 									cnt_y <= (others => '0');
 								else
 									cnt_y <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_y)) + 1, 4));
