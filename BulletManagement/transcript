@@ -1,0 +1,227 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+# OpenFile C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Break key hit
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 10:55:50 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(10): near "port": (vcom-1576) expecting IDENTIFIER.
+# 
+# End time: 10:55:50 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 10:56:59 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(37): near "reset": (vcom-1576) expecting BEGIN.
+# 
+# End time: 10:56:59 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 10:57:56 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "bullet_module" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(82): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(83): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): No feasible entries for infix operator "<=".
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): Type error resolving infix expression "<=" as type std.STANDARD.TIME.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(84): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): near "after": (vcom-1576) expecting ';'.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(91): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(96): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(97): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(98): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(99): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(100): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(101): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(111): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(112): Integer literal 1 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(113): Integer literal 0 is not of type ieee.std_logic_1164.STD_LOGIC.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): Labels do not match: 'bullet_mod_tb_arch' and 'bullet_mod_arch'.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 10:57:56 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 19, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:00:06 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "bullet_module" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): No feasible entries for infix operator "<=".
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): Type error resolving infix expression "<=" as type std.STANDARD.TIME.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): near "after": (vcom-1576) expecting ';'.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(96): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(97): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(98): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(99): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(100): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): Labels do not match: 'bullet_mod_tb_arch' and 'bullet_mod_arch'.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:00:06 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 11, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:02:01 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "bullet_module" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): Type error resolving infix expression "<=" as type std.STANDARD.TIME.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(86): near "after": (vcom-1576) expecting ';'.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(96): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(97): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(98): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(99): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(100): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): Labels do not match: 'bullet_mod_tb_arch' and 'bullet_mod_arch'.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:02:01 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 10, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:02:47 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "bullet_module" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(96): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(97): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(98): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(99): Enumeration literal '1' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(100): Enumeration literal '0' is not of type ieee.std_logic_1164.STD_LOGIC_VECTOR.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): Labels do not match: 'bullet_mod_tb_arch' and 'bullet_mod_arch'.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:02:47 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 8, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:03:15 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "bullet_module" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): Labels do not match: 'bullet_mod_tb_arch' and 'bullet_mod_arch'.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:03:16 on Dec 01,2016, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:03:31 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "bullet_module" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:03:31 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:04:04 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error (suppressible): C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(62): (vcom-1141) Identifier "lbl_bullet" does not identify a component declaration.
+# 
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:04:04 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:04:25 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(79): Component instantiation statement must have a label.
+# ** Error: C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd(115): VHDL Compiler exiting
+# End time: 11:04:25 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd
+# Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 11:04:47 on Dec 01,2016
+# vcom -reportprogress 300 -work work C:/Users/simonverkleij/Documents/GitHub/Tanks-EPO3/BulletManagement/bulletmanagement_tb.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity bullet_mod_tb
+# -- Compiling architecture bullet_mod_tb_arch of bullet_mod_tb
+# End time: 11:04:47 on Dec 01,2016, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim -gui work.bullet_mod_tb(bullet_mod_tb_arch)
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui C:\Users\simonverkleij\Documents\GitHub\Tanks-EPO3\BulletManagement\bulletmanagement_tb.vhd 
+# Start time: 11:05:04 on Dec 01,2016
+# ** FATAL ERROR: ModelSim PE Student Edition license key expired as of (null).
+#   Please go to http://www.model.com and download the ModelSim PE Student Edition update.
+# ** FATAL ERROR: ModelSim PE Student Edition licensing failure due to one or more problems with the license key such as:
+# - it is not found
+# - it has expired
+# - it is not for this user
+# - it is not for this computer
+# - it is not for this version of ModelSim PE Student Edition.
+# 
+# Please go to http://www.model.com and download an updated copy of the ModelSim PE Student Edition.
+# Error loading design

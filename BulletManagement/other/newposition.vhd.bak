@@ -1,0 +1,9 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+
+entity newposition is
+   port(bullet_in :in    std_logic_vector(10 downto 0);
+        bullet_out:out   std_logic_vector(10 downto 0));
+end newposition;
+
+
