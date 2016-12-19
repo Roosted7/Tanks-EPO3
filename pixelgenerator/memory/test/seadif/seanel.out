@@ -1,6 +1,0 @@
------- opening nelsis ------
------- reading image description file '/data/public/common/software/nelsis/5.4.7p/share/lib/celllibs/fishbone/image.seadif' ------
------- opening seadif ------
------- reading sdf laycell 'Tmp_Cell_(tank_pos_reg(tank_pos_reg(test)))': OK ------
------- writing sdflay 'Tmp_Cell_(tank_pos_reg(tank_pos_reg(test)))' into nelsis 'Tmptank_pos_reg10591' ------
------- nelsea: task completed ------

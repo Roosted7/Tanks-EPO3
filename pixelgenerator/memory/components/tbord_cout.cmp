@@ -1,3 +1,0 @@
-bbox 6 4
-port out col(2:0)
-port in  row(3:0)
