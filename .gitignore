@@ -1,0 +1,11 @@
+transcript
+*.cfg
+*.bak
+*.mti
+*.mpf
+*.vhd_
+_info
+*.qdb
+*.qpg
+*.qtl
+_vmake
