@@ -87,14 +87,28 @@ begin
 							vsync <= '1';
 						end if;
 		
-						if(to_integer(unsigned(cnt_row)) = 8) then
-							frame_i <= '0';
-						elsif(to_integer(unsigned(cnt_row)) = 524) then
-							cnt_row <= (others => '0');
-						elsif(to_integer(unsigned(cnt_row)) = 472) then -- rising_edge(frame)
-							frame_i <= '1';
+--						if(to_integer(unsigned(cnt_row)) = 8) then
+--							frame_i <= '0';
+--						elsif(to_integer(unsigned(cnt_row)) = 524) then
+--							cnt_row <= (others => '0');
+--						elsif(to_integer(unsigned(cnt_row)) = 472) then -- rising_edge(frame)
+--							frame_i <= '1';
+--
+--							bullet_i <= not(bullet_i); -- create bullet speed signal
+--						end if;
 
-							bullet_i <= not(bullet_i); -- create bullet speed signal
+						if(to_integer(unsigned(cnt_row) < 472) then
+							frame_i <= '0';
+						else
+							frame_i <= '1';
+						end if;
+
+						if(to_integer(unsigned(cnt_row) = 524) then
+							cnt_row <= (others => '0');
+						end if;
+
+						if(to_integer(unsigned(cnt_row) = 472) then
+							bullet_i <= not(bullet_i);
 						end if;
 		
 						if((to_integer(unsigned(cnt_row)) > 7) and (to_integer(unsigned(cnt_row)) < 472)) then
