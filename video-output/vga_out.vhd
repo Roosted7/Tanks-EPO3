@@ -86,19 +86,19 @@ begin
 					if(to_integer(unsigned(cnt_cluster)) = 0) then -- high when going to the next row
 						cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 10));
 
-						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
-							vsync <= '0'; -- create vsync signal
-							cnt_y <= (others => '1');
-						else
-							vsync <= '1';
-						end if;
-
---						if(to_integer(unsigned(cnt_row)) = 0 or to_integer(unsigned(cnt_row)) = 492) then
---							vsync <= '1';
---						elsif(to_integer(unsigned(cnt_row)) = 490) then
---							vsync <= '0';
+--						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
+--							vsync <= '0'; -- create vsync signal
 --							cnt_y <= (others => '1');
+--						else
+--							vsync <= '1';
 --						end if;
+
+						if(to_integer(unsigned(cnt_row)) = 0 or to_integer(unsigned(cnt_row)) = 492) then
+							vsync <= '1';
+						elsif(to_integer(unsigned(cnt_row)) = 490) then
+							vsync <= '0';
+							cnt_y <= (others => '1');
+						end if;
 		
 						if(to_integer(unsigned(cnt_row)) = 8) then
 							frame_i <= '0';
