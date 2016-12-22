@@ -54,9 +54,9 @@ architecture bullet_mod_arch of bullet_mod is
   end component;
     
   component gen_bullet
-    port( fire_b      : in std_logic_vector(2 downto 0);
-          tank_b      : in std_logic_vector(10 downto 0);
-          gen_b       : out std_logic_vector(10 downto 0));
+    port( fire_b1      : in std_logic_vector(2 downto 0);
+          tank_b1      : in std_logic_vector(10 downto 0);
+          gen_b1       : out std_logic_vector(10 downto 0));
   end component;
     
   component bullet_coll
