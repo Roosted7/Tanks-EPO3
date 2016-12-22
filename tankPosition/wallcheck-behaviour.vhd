@@ -25,7 +25,8 @@ end component mux_1bits;
 component register1bit is
    port(D  :in    std_logic;
         Q  :out   std_logic;
-        clk:in    std_logic);
+        clk:in    std_logic;
+	reset : in std_logic);
 end component register1bit;
 
 
@@ -61,7 +62,8 @@ clk_for_reg_t1 <= count_in(2) and count_in(1) and count_in(0);
 register_tank_1: register1bit port map (
 d => result,
 q => result_tank_1,
-clk => clk_for_reg_t1
+clk => clk_for_reg_t1,
+reset => reset
 );
 
 clk_for_reg_t2 <= (not count_in(2)) and count_in(1) and count_in(0);
@@ -69,7 +71,8 @@ clk_for_reg_t2 <= (not count_in(2)) and count_in(1) and count_in(0);
 register_tank_2: register1bit port map (
 d =>result,
 q => result_tank_2,
-clk => clk_for_reg_t2
+clk => clk_for_reg_t2,
+reset => reset
 );
 
 l6: mux_8bits port map (
@@ -88,6 +91,12 @@ control => result_tank_2
 
 
 end behaviour;
+
+
+
+
+
+
 
 
 
