@@ -1,4 +1,4 @@
-# Tanks-EPO3
+# Tanks-EPO3  ![alt text](https://i.imgur.com/sVStzCI.png)
 Tanks game design for 'Sea of Gates' IC or FPGA
 
 ## we are going to build awesome things!
@@ -14,4 +14,3 @@ Gantt-chart: https://drive.google.com/open?id=0Bxp50PK677dFNk84MFBLQkh5S00
 2. Tijs taart counter: 3
 3. AP taart counter: 1
 4. Martijn taart counter: 1
-
