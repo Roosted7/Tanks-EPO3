@@ -234,9 +234,9 @@ bullet_generator : bullet_mod port map(
 video_generator : vga_out port map(
 				clk => clk,
 				reset => reset,
-				rgb(0) => r_sig,
+				rgb(2) => r_sig,
 				rgb(1) => g_sig,
-				rgb(2) => b_sig,
+				rgb(0) => b_sig,
 				r => r_out,
 				g => g_out,
 				b => b_out,
