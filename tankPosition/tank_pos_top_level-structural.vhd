@@ -21,7 +21,8 @@ component wallcheck is
 --        tankwall_c  :out   std_logic_vector(1 downto 0);
 --        tankwall_res:in    std_logic;
         count_in    :in    std_logic_vector(2 downto 0);
-	reset : in std_logic);
+	reset : in std_logic;
+	clk : in std_logic);
 end component;
 
 component tank_collision is
@@ -66,7 +67,8 @@ check_walls: wallcheck port map (
 --			tankwall_c => tankwall_c,
 --			tankwall_res => tankwall_res,
 			count_in => count_in,
-			reset => reset
+			reset => reset,
+			clk => clk
 			);
 			
 
@@ -80,6 +82,9 @@ collisions: tank_collision port map (
 			);
 
 end structural;
+
+
+
 
 
 

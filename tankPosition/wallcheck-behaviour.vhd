@@ -33,10 +33,10 @@ end component register1bit;
 signal to_wallcheck : std_logic_vector(7 downto 0);
 signal result : std_logic;
 signal reg1_out, reg2_out : std_logic;
-signal res1 : std_logic;
+signal res1, res2 : std_logic;
 signal result_tank_1, result_tank_2 : std_logic;
-
 signal clk_for_reg_t1, clk_for_reg_t2 : std_logic;
+signal inv_clk : std_logic;
 
 begin
 
@@ -44,34 +44,43 @@ l1: mux_8bits port map (
 new_1 => to_wallcheck, 
 old_1 => newcoor_2 , --Inverted
 old_2 => newcoor_1,
-control => count_in(2));
+control => count_in(1));
 
 l2: tankwalls port map (
 coord => to_wallcheck, 
 result => result);
 
-l3: mux_1bits port map (
+mux_t1: mux_1bits port map (
 new_1 => res1,
-old_1 => result,
-old_2 => reg1_out,
-control => count_in(2)
+old_1 => result_tank_1,
+old_2 => result,
+control => clk_for_reg_t1
 );
 
-clk_for_reg_t1 <= count_in(2) and count_in(1) and count_in(0);
+mux_t2: mux_1bits port map (
+new_1 => res2,
+old_1 => result_tank_2,
+old_2 => result,
+control => clk_for_reg_t2
+);
+
+inv_clk <= not clk;
+
+clk_for_reg_t1 <= count_in(1) and count_in(0);-- and count_in(0);
 
 register_tank_1: register1bit port map (
-d => result,
+d => res1,
 q => result_tank_1,
-clk => clk_for_reg_t1,
+clk => inv_clk,
 reset => reset
 );
 
-clk_for_reg_t2 <= (not count_in(2)) and count_in(1) and count_in(0);
+clk_for_reg_t2 <= (not count_in(1)) and count_in(0); -- and count_in(0);
 
 register_tank_2: register1bit port map (
-d =>result,
+d =>res2,
 q => result_tank_2,
-clk => clk_for_reg_t2,
+clk => inv_clk,
 reset => reset
 );
 
@@ -91,6 +100,15 @@ control => result_tank_2
 
 
 end behaviour;
+
+
+
+
+
+
+
+
+
 
 
 

@@ -9,8 +9,12 @@ entity tank_pos_top_level is
         old_pos_2			  :in    std_logic_vector(10 downto 0);
         new_pos_2			  :out   std_logic_vector(9 downto 0);
         count_in      			 :in    std_logic_vector(2 downto 0);
-	reset		: in std_logic);
+		reset		: in std_logic;
+		clk 		: in std_logic);
 end tank_pos_top_level;
+
+
+
 
 
 
