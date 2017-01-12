@@ -60,9 +60,9 @@ begin
 							cnt_x <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_x)) + 1, 4));
 						end if;
 
-						r <= rgb(2);
+						r <= rgb(0);
 						g <= rgb(1);
-						b <= rgb(0);
+						b <= rgb(2);
 					else
 						r <= '0';
 						g <= '0';
@@ -75,29 +75,16 @@ begin
 						hsync <= '1';
 					end if;
 
---					if(to_integer(unsigned(cnt_cluster)) = 0 or to_integer(unsigned(cnt_cluster)) = 26) then
---						hsync <= '1';
---					elsif(to_integer(unsigned(cnt_cluster)) = 23) then
---						hsync <= '0';
---					end if;
-
 					cnt_cluster <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_cluster)) + 1, 5));
 
 					if(to_integer(unsigned(cnt_cluster)) = 0) then -- high when going to the next row
 						cnt_row <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_row)) + 1, 10));
 
---						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
---							vsync <= '0'; -- create vsync signal
---							cnt_y <= (others => '1');
---						else
---							vsync <= '1';
---						end if;
-
-						if(to_integer(unsigned(cnt_row)) = 0 or to_integer(unsigned(cnt_row)) = 492) then
-							vsync <= '1';
-						elsif(to_integer(unsigned(cnt_row)) = 490) then
-							vsync <= '0';
+						if((to_integer(unsigned(cnt_row)) >= 490) and (to_integer(unsigned(cnt_row)) <= 491)) then
+							vsync <= '0'; -- create vsync signal
 							cnt_y <= (others => '1');
+						else
+							vsync <= '1';
 						end if;
 		
 						if(to_integer(unsigned(cnt_row)) = 8) then
