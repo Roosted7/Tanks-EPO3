@@ -11,7 +11,7 @@ Gantt-chart: https://drive.google.com/open?id=0Bxp50PK677dFNk84MFBLQkh5S00
 
 ## Cakes, the most important part of our success
 1. Thomas taart counter: 12
-2. Tijs taart counter: 2
+2. Tijs taart counter: 3
 3. AP taart counter: 1
 4. Martijn taart counter: 1
 
