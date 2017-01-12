@@ -60,9 +60,9 @@ begin
 							cnt_x <= std_logic_vector(to_unsigned(to_integer(unsigned(cnt_x)) + 1, 4));
 						end if;
 
-						r <= rgb(2);
+						r <= rgb(0);
 						g <= rgb(1);
-						b <= rgb(0);
+						b <= rgb(2);
 					else
 						r <= '0';
 						g <= '0';
