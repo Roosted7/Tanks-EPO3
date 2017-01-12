@@ -12,6 +12,6 @@ cp ~/Tanks-EPO3/*.vhd ~/game_top/VHDL
 rm ~/game_top/VHDL/*tb*
 rm ~/game_top/VHDL/*syn*
 rm ~/game_top/VHDL/*ext*
-
+rm ~/game_top/VHDL/*test*
 
 
