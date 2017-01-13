@@ -10,7 +10,7 @@ Link to ShareLaTeX: https://www.sharelatex.com/project/5816526838744a1e5a319ce4
 Gantt-chart: https://drive.google.com/open?id=0Bxp50PK677dFNk84MFBLQkh5S00
 
 ## Cakes, the most important part of our success
-1. Thomas taart counter: 12
+1. Thomas taart counter: 13
 2. Tijs taart counter: 3
 3. AP taart counter: 1
 4. Martijn taart counter: 1

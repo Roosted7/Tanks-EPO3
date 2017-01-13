@@ -54,7 +54,34 @@ port(t1       :in    std_logic;
 	k2_n   	 :out   std_logic);
 end component;
 
-component pg_top is
+component pg_player1 is
+port (
+		-- Inputs from the tank position generator
+		tank_x_in 	: in std_logic_vector(3 downto 0);
+		tank_y_in 	: in std_logic_vector(3 downto 0);
+		tank_or_in 	: in std_logic_vector(1 downto 0);
+		-- Input for the "hit" signal from the collision block
+		hit_in		: in std_logic;
+		-- Outputs of the registers to be used for other components
+		tank_x_out  	: out std_logic_vector(3 downto 0);
+		tank_y_out 	: out std_logic_vector(3 downto 0);
+		tank_or_out	: out std_logic_vector(1 downto 0);
+		hit_out 	: out std_logic;
+		-- Current VGA drawing position.
+		screen_x_in 	: in std_logic_vector(3 downto 0);
+		screen_y_in 	: in std_logic_vector(3 downto 0);
+		-- clock for the coordinate register
+		update_pos 	: in std_logic_vector( 2 downto 0);
+		-- clock for the hit register
+		clk		: in std_logic;
+		-- Do we draw or do we not?
+		draw 		: out std_logic;
+		-- system reset
+		reset		: in std_logic
+	);
+end component;
+
+component pg_player2 is
 port (
 		-- Inputs from the tank position generator
 		tank_x_in 	: in std_logic_vector(3 downto 0);
@@ -134,11 +161,11 @@ signal t1_rip, t2_rip : std_logic;
 begin
 
 tank1_input : input_system port map(
-				p_l => p_l_1,
-				p_r => p_r_1,
-				p_u => p_u_1,
-				p_d => p_d_1,
-				p_f => p_f_1,
+				p_l => not (p_l_1),
+				p_r => not(p_r_1),
+				p_u => not(p_u_1),
+				p_d => not(p_d_1),
+				p_f => not(p_f_1),
 				frame => tf,
 				clk => clk,
 				reset => reset,
@@ -166,11 +193,11 @@ tank_pos_calc : new_top port map(
 				clk => clk,
 				new_pos_1 => t1_pos_n,
 				new_pos_2 => t2_pos_n);
-pixel_generator_t1 : pg_top port map(
+pixel_generator_t1 : pg_player1 port map(
 				tank_x_in => t1_pos_n(9 downto 6),
 				tank_y_in => t1_pos_n(5 downto 2),
 				tank_or_in => t1_pos_n(1 downto 0),
-				hit_in => t1_live,
+				hit_in => not(t1_live),
 				tank_x_out => t1_pos(9 downto 6),
 				tank_y_out => t1_pos(5 downto 2),
 				tank_or_out => t1_pos(1 downto 0),
@@ -181,11 +208,11 @@ pixel_generator_t1 : pg_top port map(
 				clk => clk,
 				draw => t1_act,
 				reset => reset);
-pixel_generator_t2 : pg_top port map(
+pixel_generator_t2 : pg_player2 port map(
 				tank_x_in => t2_pos_n(9 downto 6),
 				tank_y_in => t2_pos_n(5 downto 2),
 				tank_or_in => t2_pos_n(1 downto 0),
-				hit_in => t2_live,
+				hit_in => not(t2_live),
 				tank_x_out => t2_pos(9 downto 6),
 				tank_y_out => t2_pos(5 downto 2),
 				tank_or_out => t2_pos(1 downto 0),
@@ -230,7 +257,9 @@ bullet_generator : bullet_mod port map(
 				x_vga => video_x,
 				y_vga => video_y,
 				feedback_b1 => k1_live,
-				feedback_b2 => k2_live);
+				feedback_b2 => k2_live,
+				draw_b1 => k1_act,
+				draw_b2 => k2_act);
 video_generator : vga_out port map(
 				clk => clk,
 				reset => reset,
@@ -247,7 +276,11 @@ video_generator : vga_out port map(
 				x => video_x,
 				y => video_y,
 				collision => collision_enable);
-				
+input_counter_1 : input_counter port map(
+				clk => clk,
+				reset => reset,
+				enable => input_counter_enable,
+				count => input_counter_val);
 end behaviour;
 
 
