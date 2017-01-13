@@ -8,7 +8,6 @@ entity newposition is
 end newposition;
 
 architecture behaviour of newposition is
-	signal l: std_logic;
 	signal x: std_logic_vector(3 downto 0);
 	signal y: std_logic_vector(3 downto 0);
 	signal dir: std_logic_vector(1 downto 0);
@@ -17,7 +16,6 @@ architecture behaviour of newposition is
 	signal x_out: std_logic_vector(3 downto 0);
 	signal y_out: std_logic_vector(3 downto 0);
 begin
-	l <= bullet_in(10);
 	x <= bullet_in(9 downto 6);
 	y <= bullet_in(5 downto 2);
 	dir <= bullet_in(1 downto 0);

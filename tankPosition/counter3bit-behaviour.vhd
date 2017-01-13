@@ -6,7 +6,7 @@ use ieee.std_logic_unsigned.all;
 architecture behaviour of counter3bit is
 signal cin : std_logic_vector(2 downto 0);
 begin
-process (clk)
+process (clk, cin)
 begin
 if (clk'event and clk='1') then
 	if (reset = '1') then
