@@ -117,6 +117,21 @@ port(
         wall:out   std_logic);
 end component;
 
+component toplvl_screen is
+port(
+	reset		:in  std_logic;
+	x		:in  std_logic_vector(3 downto 0);
+	y		:in  std_logic_vector(3 downto 0);
+	exist_t1	:in  std_logic;
+	exist_t2	:in  std_logic;
+	fire_t1		:in  std_logic;
+	fire_t2		:in  std_logic;
+	clk		:in  std_logic;
+	rgb		:in  std_logic_vector(2 downto 0);
+	rgb_out		:out std_logic_vector(2 downto 0);
+	idle		:out std_logic);
+end component;
+
 signal t1_encoded_in, t2_encoded_in : std_logic_vector(2 downto 0);
 signal tf, tb : std_logic;
 signal input_counter_enable : std_logic_vector(1 downto 0);
@@ -131,14 +146,31 @@ signal r_sig, g_sig, b_sig : std_logic;
 
 signal t1_rip, t2_rip : std_logic;
 
+signal game_rgb : std_logic_vector(2 downto 0);
+signal game_p_l_1, game_p_r_1, game_p_u_1, game_p_d_1, game_p_f_1 :std_logic;
+signal game_p_l_2, game_p_r_2, game_p_u_2, game_p_d_2, game_p_f_2 :std_logic;
+signal game_idle;
+
 begin
 
+game_p_l_1 <= p_l_1 and not(game_idle);
+game_p_r_1 <= p_r_1 and not(game_idle);
+game_p_u_1 <= p_u_1 and not(game_idle);
+game_p_d_1 <= p_d_1 and not(game_idle);
+game_p_f_1 <= p_f_1 and not(game_idle);
+
+game_p_l_2 <= p_l_2 and not(game_idle);
+game_p_r_2 <= p_r_2 and not(game_idle);
+game_p_u_2 <= p_u_2 and not(game_idle);
+game_p_d_2 <= p_d_2 and not(game_idle);
+game_p_f_2 <= p_f_2 and not(game_idle);
+
 tank1_input : input_system port map(
-				p_l => p_l_1,
-				p_r => p_r_1,
-				p_u => p_u_1,
-				p_d => p_d_1,
-				p_f => p_f_1,
+				p_l => game_p_l_1,
+				p_r => game_p_r_1,
+				p_u => game_p_u_1,
+				p_d => game_p_d_1,
+				p_f => game_p_f_1,
 				frame => tf,
 				clk => clk,
 				reset => reset,
@@ -146,11 +178,11 @@ tank1_input : input_system port map(
 				counter_enable => input_counter_enable(0),
 				t_e => t1_encoded_in);
 tank2_input : input_system port map(
-				p_l => p_l_2,
-				p_r => p_r_2,
-				p_u => p_u_2,
-				p_d => p_d_2,
-				p_f => p_f_2,
+				p_l => game_p_l_2,
+				p_r => game_p_r_2,
+				p_u => game_p_u_2,
+				p_d => game_p_d_2,
+				p_f => game_p_f_2,
 				frame => tf,
 				clk => clk,
 				reset => reset,
@@ -234,9 +266,9 @@ bullet_generator : bullet_mod port map(
 video_generator : vga_out port map(
 				clk => clk,
 				reset => reset,
-				rgb(0) => r_sig,
-				rgb(1) => g_sig,
-				rgb(2) => b_sig,
+				rgb(0) => rgb_out(2), -- red
+				rgb(1) => rgb_out(1), -- green
+				rgb(2) => rgb_out(0), -- blue
 				r => r_out,
 				g => g_out,
 				b => b_out,
@@ -247,7 +279,22 @@ video_generator : vga_out port map(
 				x => video_x,
 				y => video_y,
 				collision => collision_enable);
-				
+start_end_screen : game_fsm port map(
+				reset => reset,
+				x => video_x,
+				y => video_y,
+				exist_t1 => t1_live,
+				exist_t2 => t2_live,
+				fire_t1	=> p_f_1,
+				fire_t2	=> p_f_2,
+				clk => clk
+				rgb(2) => r_sig,
+				rgb(1) => g_sig,
+				rgb(0) => b_sig,
+				rgb_out(2) => rgb_out(2), -- red
+				rgb_out(1) => rgb_out(1), -- green
+				rgb_out(0) => rgb_out(0), -- blue
+				idle => game_idle);
 end behaviour;
 
 
