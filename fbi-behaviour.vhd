@@ -29,18 +29,22 @@ begin
 mem1: mem port map(			inp_f,
 			outfbi,
 			reset,
-			bclk_d,
+			bclk_d2,
 			clk);
 
 s1: s port map(			infbi,
 			inp_f);
 
-del: delay port map(			bclk,
-			bclk_d,
+del1: delay port map(			bclk,
+			bclk_d1,
 			clk,
 			reset);
 
-			
+del2: delay port map(			bclk_d1,
+			bclk_d2,
+			clk,
+			reset);
+
 end behaviour;
 
 
