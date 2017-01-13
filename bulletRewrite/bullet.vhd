@@ -4,33 +4,27 @@ use ieee.numeric_std.all;
 
 entity bullet is
   port(
-    clk:      in  std_logic;
-    bclk:     in  std_logic;
-    reset:    in  std_logic;
+    clk:      in  std_logic;                      -- clk
+    bclk:     in  std_logic;                      -- bullet clock from vga
+    reset:    in  std_logic;                      -- reset
 
-    fire:     in  std_logic_vector(2 downto 0);
-    e_tank:   in  std_logic;
+    fire:     in  std_logic_vector(2 downto 0);   -- fire button pressed
+    e_tank:   in  std_logic;                      -- end of tank
     
-    x_tank:   in  std_logic_vector(3 downto 0);
-    y_tank:   in  std_logic_vector(3 downto 0);
-    d_tank:   in  std_logic_vector(1 downto 0);
-    e_bull:   in  std_logic;
+    x_tank:   in  std_logic_vector(3 downto 0);   -- x of tank
+    y_tank:   in  std_logic_vector(3 downto 0);   -- y of tank
+    d_tank:   in  std_logic_vector(1 downto 0);   -- direction of tank
+    e_bull:   in  std_logic;                      -- end of bullet
 
-    x_vga:    in  std_logic_vector(3 downto 0);
-    y_vga:    in  std_logic_vector(3 downto 0);
-    draw:     out std_logic);
+    x_vga:    in  std_logic_vector(3 downto 0);   -- x of current vga
+    y_vga:    in  std_logic_vector(3 downto 0);   -- y of current vga
+    draw:     out std_logic);                     -- draw bullet at these xy
 end bullet;
 
 architecture arch of bullet is
-signal 
+signal exis_bull: std_logic; -- whether there is a bullet
 
 begin
-  process(reset, clk, bclk)
-  begin
-    if(rising_edge(clk)) then
-      if(reset = '1') then
-        -- reset reset
-      else
-        if()
+  
 
 end arch;
