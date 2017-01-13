@@ -30,7 +30,7 @@ begin
           y <= i_bull(5 downto 2);
           l <= '0';
         else
-          case dir is
+          case i_bull(1 downto 0) is
             when "00" =>
               x <= std_logic_vector(unsigned(i_bull(9 downto 6)) - 1);
               y <= i_bull(5 downto 2);
