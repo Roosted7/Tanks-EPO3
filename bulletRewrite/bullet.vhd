@@ -18,7 +18,9 @@ entity bullet is
 
     x_vga:    in  std_logic_vector(3 downto 0);   -- x of current vga
     y_vga:    in  std_logic_vector(3 downto 0);   -- y of current vga
-    draw:     out std_logic);                     -- draw bullet at these xy
+    draw:     out std_logic;                     -- draw bullet at these xy
+    test_x:   out std_logic_vector(3 downto 0);
+    test_y:   out std_logic_vector(3 downto 0));
 end bullet;
 
 architecture arch of bullet is
@@ -83,6 +85,8 @@ signal bullet_clock_rising_edge, bullet_active, new_bullet_active : std_logic;
 signal new_x_bullet, new_y_bullet, x_bullet, y_bullet : std_logic_vector(3 downto 0);
 signal new_d_bullet, d_bullet : std_logic_vector(1 downto 0);
 begin
+test_x <= x_bullet;
+test_y <= y_bullet;
 
 tb : bclk port map(
                 clk => clk,
