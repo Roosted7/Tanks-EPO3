@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.ALL;
 
 architecture behaviour of game_top is
-component input_system is
+component in_syst_buff is
 port(
 	p_l		:in    std_logic;
 	p_r	   	:in    std_logic;
@@ -160,7 +160,7 @@ signal t1_rip, t2_rip : std_logic;
 
 begin
 
-tank1_input : input_system port map(
+tank1_input : in_syst_buff port map(
 				p_l => not (p_l_1),
 				p_r => not(p_r_1),
 				p_u => not(p_u_1),
@@ -172,7 +172,7 @@ tank1_input : input_system port map(
 				counter => input_counter_val,
 				counter_enable => input_counter_enable(0),
 				t_e => t1_encoded_in);
-tank2_input : input_system port map(
+tank2_input : in_syst_buff port map(
 				p_l => p_l_2,
 				p_r => p_r_2,
 				p_u => p_u_2,
