@@ -25,7 +25,7 @@ end bullet;
 
 architecture arch of bullet is
 
-component bclk is
+component bclkgen is
 port(
     clk:      in  std_logic;
     vbullet:  in  std_logic;
@@ -36,7 +36,6 @@ end component;
 component bullet_generator is
 port(
     clk:      in  std_logic;
-    bclk:     in  std_logic;
     fire:     in  std_logic_vector(2 downto 0);   -- fire button pressed
     e_bull:   in  std_logic;                      -- there is already a bullet
     
@@ -61,7 +60,7 @@ port(
             pos_x : out std_logic_vector(3 downto 0);
             pos_y : out std_logic_vector(3 downto 0);
             rotation : out std_logic_vector(1 downto 0);
-            active : out);
+            active : out std_logic);
 end component;
 
 component bullet_updater is
@@ -81,14 +80,16 @@ port(
         output : out std_logic);
 end component;
 
-signal bullet_clock_rising_edge, bullet_active, new_bullet_active : std_logic;
+signal bullet_clock_rising_edge, bullet_active, new_bullet_active, sum : std_logic;
 signal new_x_bullet, new_y_bullet, x_bullet, y_bullet : std_logic_vector(3 downto 0);
 signal new_d_bullet, d_bullet : std_logic_vector(1 downto 0);
 begin
 test_x <= x_bullet;
 test_y <= y_bullet;
 
-tb : bclk port map(
+sum <= e_bull and new_bullet_active;
+
+tb : bclkgen port map(
                 clk => clk,
                 vbullet => bclk,
                 reset => reset,
@@ -123,7 +124,7 @@ bullet_reg : bullet_register port map(
                 new_pos_x => new_x_bullet,
                 new_pos_y => new_y_bullet,
                 new_rotation => new_d_bullet,
-                new_active => (e_bull and new_bullet_active),
+                new_active => sum,
                 clk => clk,
                 reset => reset,
                 pos_x => x_bullet,

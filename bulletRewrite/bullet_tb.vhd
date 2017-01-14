@@ -29,16 +29,17 @@ component bullet is
     draw:     out std_logic;                     -- draw bullet at these xy
     test_x:   out std_logic_vector(3 downto 0);
     test_y:   out std_logic_vector(3 downto 0));                   -- draw bullet at these xy
-  end component;
+end component;
 
   signal clk, bclk, reset, e_bull, draw_out : std_logic;
+  signal d_tank : std_logic_vector(1 downto 0);
   signal fire : std_logic_vector(2 downto 0);
   signal x_tank, y_tank, x_vga, y_vga, bullet_x, bullet_y : std_logic_vector(3 downto 0);
 
   signal counter : std_logic_vector(3 downto 0);
   signal flag : std_logic;
 
-  begin
+begin
 
   lbl1: bullet port map(
   					clk => clk,
@@ -63,27 +64,30 @@ component bullet is
   y_vga <= "0110";
   clk   <=  '0' after 0  ns,
     '1' after 80  ns when clk /= '1' else '0' after 80 ns;
+  bclk   <=  '0' after 0  ns,
+    '1' after 800  ns when bclk /= '1' else '0' after 800 ns;
   reset <= '1' after 0 ns, '0' after 200 ns;
 
 --variabele signalen
   fire <= "100" after 0 ns, "101" after 570 ns, "100" after 730 ns, "101" after 1530 ns, "100" after 1690 ns;
   
 
-  process(clk)
-  begin
-  	if(rising_edge(clk)) then
-  		counter <= std_logic_vector(unsigned(counter)+1);
-  		if(counter = "0000") then
-  			if(flag = '1') then
-  				bclk <= '1';
-  				flag <= '0';
-  			else
-  				bclk <= '0';
-  				flag <= '1';
-  			end if;
-  		else
-  			bclk <= bclk;
-  			flag <= flag;
-  		end if;
-  	end if;
-  end process;
+--  process(clk)
+--  begin
+--  	if(rising_edge(clk)) then
+--  		counter <= std_logic_vector(unsigned(counter)+1);
+--  		if(counter = "0000") then
+--  			if(flag = '1') then
+--  				bclk <= '1';
+--  				flag <= '0';
+--  			else
+--  				bclk <= '0';
+--  				flag <= '1';
+--  			end if;
+--  		else
+--  			bclk <= bclk;
+--  			flag <= flag;
+--  		end if;
+--  	end if;
+--  end process;
+end architecture;

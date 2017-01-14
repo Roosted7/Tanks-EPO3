@@ -25,33 +25,39 @@ begin
   begin
     if(rising_edge(clk)) then
       if(bclk = '1') then
-        if (i_bull(9 downto 6) = "0000" or i_bull(5 downto 2) = "0000" or i_bull(9 downto 6) = "1111" or i_bull(5 downto 2) = "1111") then
+        if(i_bull(10) = '1') then
+          if (i_bull(9 downto 6) = "0000" or i_bull(5 downto 2) = "0000" or i_bull(9 downto 6) = "1111" or i_bull(5 downto 2) = "1111") then
+            x <= i_bull(9 downto 6);
+            y <= i_bull(5 downto 2);
+            l <= '0';
+          else
+            case i_bull(1 downto 0) is
+              when "00" =>
+                x <= std_logic_vector(unsigned(i_bull(9 downto 6)) - 1);
+                y <= i_bull(5 downto 2);
+                l <= i_bull(10);
+              when "01" =>
+                y <= std_logic_vector(unsigned(i_bull(5 downto 2)) - 1);
+                x <= i_bull(9 downto 6);
+                l <= i_bull(10);
+              when "10" =>
+                x <= std_logic_vector(unsigned(i_bull(9 downto 6)) + 1);
+                y <= i_bull(5 downto 2);
+                l <= i_bull(10);
+              when "11" =>
+                y <= std_logic_vector(unsigned(i_bull(5 downto 2)) + 1);
+                x <= i_bull(9 downto 6);
+                l <= i_bull(10);
+              when others =>
+                x <= i_bull(9 downto 6);
+                y <= i_bull(5 downto 2);
+                l <= '0';
+            end case;
+          end if;
+        else
           x <= i_bull(9 downto 6);
           y <= i_bull(5 downto 2);
-          l <= '0';
-        else
-          case i_bull(1 downto 0) is
-            when "00" =>
-              x <= std_logic_vector(unsigned(i_bull(9 downto 6)) - 1);
-              y <= i_bull(5 downto 2);
-              l <= i_bull(10);
-            when "01" =>
-              y <= std_logic_vector(unsigned(i_bull(5 downto 2)) - 1);
-              x <= i_bull(9 downto 6);
-              l <= i_bull(10);
-            when "10" =>
-              x <= std_logic_vector(unsigned(i_bull(9 downto 6)) + 1);
-              y <= i_bull(5 downto 2);
-              l <= i_bull(10);
-            when "11" =>
-              y <= std_logic_vector(unsigned(i_bull(5 downto 2)) + 1);
-              x <= i_bull(9 downto 6);
-              l <= i_bull(10);
-            when others =>
-              x <= i_bull(9 downto 6);
-              y <= i_bull(5 downto 2);
-              l <= '0';
-          end case;
+          l <= '0'; 
         end if;
       end if;
     end if;

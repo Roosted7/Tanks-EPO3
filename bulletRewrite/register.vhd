@@ -1,18 +1,18 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity register is
+entity reg is
 	port(
 			input : in std_logic;
 			clk : in std_logic;
 			reset : in std_logic;
 			output : out std_logic);
-end register;
+end reg;
 
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-architecture behaviour of register is
+architecture behaviour of reg is
 
 signal value : std_logic;
 begin
