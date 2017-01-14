@@ -9,7 +9,6 @@ entity bullet is
     reset:    in  std_logic;                      -- reset
 
     fire:     in  std_logic_vector(2 downto 0);   -- fire button pressed
-    e_tank:   in  std_logic;                      -- end of tank
     
     x_tank:   in  std_logic_vector(3 downto 0);   -- x of tank
     y_tank:   in  std_logic_vector(3 downto 0);   -- y of tank
@@ -18,6 +17,7 @@ entity bullet is
 
     x_vga:    in  std_logic_vector(3 downto 0);   -- x of current vga
     y_vga:    in  std_logic_vector(3 downto 0);   -- y of current vga
+    
     draw:     out std_logic;                     -- draw bullet at these xy
     test_x:   out std_logic_vector(3 downto 0);
     test_y:   out std_logic_vector(3 downto 0));
