@@ -7,6 +7,7 @@ TB = $(TARGET)_tb
 GHDLFLAGS = --vcd=$(TARGET).vcd --stop-time=10000ns
 
 default:
+	$(GHDL) -a mux.vhd
 	$(GHDL) -a register.vhd
 	$(GHDL) -a bclk.vhd
 	$(GHDL) -a bullet_control.vhd

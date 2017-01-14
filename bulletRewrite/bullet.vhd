@@ -80,12 +80,19 @@ port(
         output : out std_logic);
 end component;
 
-signal bullet_clock_rising_edge, bullet_active, new_bullet_active, sum : std_logic;
-signal new_x_bullet, new_y_bullet, x_bullet, y_bullet : std_logic_vector(3 downto 0);
-signal new_d_bullet, d_bullet : std_logic_vector(1 downto 0);
+component mux_10 is
+   port(  in_1, in_2  : in std_logic_vector(9 downto 0);
+          sel         : in std_logic;
+          out_vector  : out std_logic_vector(9 downto 0));
+end component;
+
+signal bullet_clock_rising_edge, bullet_active, new_bullet_active_gen, new_bullet_active_updater, new_bullet_active, sum : std_logic;
+signal new_x_bullet, new_x_bullet_updater, new_x_bullet_gen, new_y_bullet, new_y_bullet_updater, new_y_bullet_gen, x_bullet, y_bullet : std_logic_vector(3 downto 0);
+signal new_d_bullet, new_d_bullet_updater, new_d_bullet_gen, d_bullet : std_logic_vector(1 downto 0);
 begin
 test_x <= x_bullet;
 test_y <= y_bullet;
+new_bullet_active <= new_bullet_active_gen or new_bullet_active_updater;
 
 sum <= e_bull and new_bullet_active;
 
@@ -103,10 +110,10 @@ bullet_gen : bullet_generator port map(
                 y_tank => y_tank,
                 d_tank => d_tank,
 
-                x_bull => new_x_bullet,
-                y_bull => new_y_bullet,
-                d_bull => new_d_bullet,
-                l_bull => new_bullet_active);
+                x_bull => new_x_bullet_gen,
+                y_bull => new_y_bullet_gen,
+                d_bull => new_d_bullet_gen,
+                l_bull => new_bullet_active_gen);
 
 bullet_upd : bullet_updater port map(
                 clk => clk,
@@ -115,10 +122,10 @@ bullet_upd : bullet_updater port map(
                 i_bull(9 downto 6) => x_bullet,
                 i_bull(5 downto 2) => y_bullet,
                 i_bull(1 downto 0) => d_bullet,
-                o_bull(10) => new_bullet_active,
-                o_bull(9 downto 6) => new_x_bullet,
-                o_bull(5 downto 2) => new_y_bullet,
-                o_bull(1 downto 0) => new_d_bullet);
+                o_bull(10) => new_bullet_active_updater,
+                o_bull(9 downto 6) => new_x_bullet_updater,
+                o_bull(5 downto 2) => new_y_bullet_updater,
+                o_bull(1 downto 0) => new_d_bullet_updater);
 
 bullet_reg : bullet_register port map(
                 new_pos_x => new_x_bullet,
@@ -138,4 +145,16 @@ bullet_out : bullet_control port map(
                 bullet_x => x_bullet,
                 bullet_y => y_bullet,
                 output => draw);
+
+mux_bull : mux_10 port map(
+                in_2(9 downto 6) => new_x_bullet_updater,
+                in_2(5 downto 2) => new_y_bullet_updater,
+                in_2(1 downto 0) => new_d_bullet_updater,
+                in_1(9 downto 6) => new_x_bullet_gen,
+                in_1(5 downto 2) => new_y_bullet_gen,
+                in_1(1 downto 0) => new_d_bullet_gen,
+                out_vector(9 downto 6) => new_x_bullet,
+                out_vector(5 downto 2) => new_y_bullet,
+                out_vector(1 downto 0) => new_d_bullet,
+                sel => new_bullet_active);
 end arch;
