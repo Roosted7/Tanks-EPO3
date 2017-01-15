@@ -132,7 +132,7 @@ bullet_reg : bullet_register port map(
                 new_pos_y => new_y_bullet,
                 new_rotation => new_d_bullet,
                 new_active => sum,
-                clk => clk,
+                clk => clk, --? waarom op klok updaten? bullet beweegt veel te snel voort? bullet_clock_rising_edge wordt nu niet gebruikt... ~Martijn
                 reset => reset,
                 pos_x => x_bullet,
                 pos_y => y_bullet,
