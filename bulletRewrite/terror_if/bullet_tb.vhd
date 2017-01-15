@@ -55,9 +55,11 @@ begin
 
   x_tank <= "0001";
   y_tank <= "1110";
-  d_tank <= "10";
-  x_vga <= "0101";
-  y_vga <= "1110";
+  
+  x_vga <=  "0101" after 0 ns,
+            "0001" after 4000 ns;
+  y_vga <=  "1110" after 0 ns,
+            "0101" after 4000 ns;
   
   clk   <=  '0' after 0  ns,
             '1' after 1  ns when clk /= '1' else '0' after 1 ns;
@@ -66,6 +68,19 @@ begin
   
   reset <= '1' after 0 ns, '0' after 200 ns;
 
-  fire <= "100" after 0 ns, "101" after 570 ns, "100" after 730 ns, "101" after 1530 ns, "100" after 1690 ns;
-  e_bull <= '0' after 0 ns, '1' after 2000 ns, '0' after 2050 ns;
+  d_tank <= "10" after 0 ns,
+            "01" after 3000 ns;
+  
+  fire <= "100" after 0 ns,
+          "101" after 570 ns,
+          "100" after 730 ns,
+          "101" after 1530 ns,
+          "100" after 1690 ns,
+          "101" after 4000 ns,
+          "100" after 4100 ns;
+  e_bull <= '0' after 0 ns,
+            '1' after 2000 ns,
+            '0' after 2050 ns,
+            '1' after 4500 ns,
+            '0' after 4600 ns;
 end architecture;

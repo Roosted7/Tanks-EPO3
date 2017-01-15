@@ -138,9 +138,9 @@ begin
     end if;
   end process;
 
-  drawout: process(x_vga, y_vga, x_bull, y_bull)
+  drawout: process(x_vga, y_vga, x_bull, y_bull, l_bull)
   begin
-    if(x_vga = x_bull and y_vga = y_bull) then
+    if(x_vga = x_bull and y_vga = y_bull and l_bull = '1') then
       draw <= '1';
     else
       draw <= '0';
