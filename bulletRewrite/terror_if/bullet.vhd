@@ -19,8 +19,9 @@ entity bullet is
   y_vga:    in  std_logic_vector(3 downto 0);   -- y of current vga
   
   draw:     out std_logic;                      -- draw bullet at these xy
-  test_x:   out std_logic_vector(3 downto 0);
-  test_y:   out std_logic_vector(3 downto 0));
+  
+  test_x:   out std_logic_vector(3 downto 0); -- TEST
+  test_y:   out std_logic_vector(3 downto 0)); -- TEST
 end bullet;
 
 architecture arch of bullet is
@@ -31,7 +32,7 @@ architecture arch of bullet is
   signal l_bull: std_logic;
 
 begin
-  bullet_clk: process(clk)
+  bullet_clk: process(clk) -- bclk high one clock period at the start of bclk
   begin
     if(rising_edge(clk)) then
       if(reset = '1') then
@@ -60,29 +61,29 @@ begin
         d_bull <= "00";
         l_bull <= '0';
       else
-        tofire <= (fire(2) and not(fire(1)) and fire(0)) or tofire;
-        tokill <= e_bull;
+        tofire <= (fire(2) and not(fire(1)) and fire(0)) or tofire; -- high when has to fire up until firing
+        tokill <= e_bull; -- high when has to kill the bullet
 
-        if(b_clk = '1') then
+        if(b_clk = '1') then -- hits at beginning of each bclk
           tofire <= '0';
           tokill <= '0';
 
-          if(tofire = '1' and l_bull = '0' and tokill = '0') then
+          if(tofire = '1' and l_bull = '0' and tokill = '0') then -- hits when to start a new bullet
             d_bull <= d_tank;
 
-            if   (d_tank = "00" and x_tank /= "0001") then 
+            if   (d_tank = "00" and x_tank /= "0001") then -- going west
               x_bull <= std_logic_vector(to_unsigned(to_integer(unsigned(x_tank)) - 2, 4)); 
               y_bull <= y_tank;
               l_bull <= '1';
-            elsif(d_tank = "01" and y_tank /= "0001") then 
+            elsif(d_tank = "01" and y_tank /= "0001") then -- going north
               y_bull <= std_logic_vector(to_unsigned(to_integer(unsigned(y_tank)) - 2, 4));
               x_bull <= x_tank;
               l_bull <= '1';
-            elsif(d_tank = "10" and x_tank /= "1110") then 
+            elsif(d_tank = "10" and x_tank /= "1110") then -- going east
               x_bull <= std_logic_vector(to_unsigned(to_integer(unsigned(x_tank)) + 2, 4));
               y_bull <= y_tank;
               l_bull <= '1';
-            elsif(d_tank = "11" and y_tank /= "1110") then
+            elsif(d_tank = "11" and y_tank /= "1110") then -- going south
               y_bull <= std_logic_vector(to_unsigned(to_integer(unsigned(y_tank)) + 2, 4));
               x_bull <= x_tank;
               l_bull <= '1';
@@ -94,25 +95,26 @@ begin
           elsif(l_bull = '1' and tokill = '0') then
             d_bull <= d_bull;
 
-            if (x_bull = "0000" or y_bull = "0000" or x_bull = "1111" or y_bull = "1111") then
+            if (x_bull = "0000" or y_bull = "0000" or -- if the bullet is going towards the wall it's killed
+            x_bull = "1111" or y_bull = "1111") then
               x_bull <= x_tank;
               y_bull <= y_tank;
               l_bull <= '0';
             else
               case d_bull is
-                when "00" =>
+                when "00" => -- west
                   x_bull <= std_logic_vector(unsigned(x_bull) - 1);
                   y_bull <= y_bull;
                   l_bull <= l_bull;
-                when "01" =>
+                when "01" => -- north
                   y_bull <= std_logic_vector(unsigned(y_bull) - 1);
                   x_bull <= x_bull;
                   l_bull <= l_bull;
-                when "10" =>
+                when "10" => -- east
                   x_bull <= std_logic_vector(unsigned(x_bull) + 1);
                   y_bull <= y_bull;
                   l_bull <= l_bull;
-                when "11" =>
+                when "11" => -- south
                   y_bull <= std_logic_vector(unsigned(y_bull) + 1);
                   x_bull <= x_bull;
                   l_bull <= l_bull;
@@ -138,7 +140,7 @@ begin
     end if;
   end process;
 
-  drawout: process(x_vga, y_vga, x_bull, y_bull, l_bull)
+  drawout: process(x_vga, y_vga, x_bull, y_bull, l_bull) -- draw high when xy_vga are equal to xy_bull
   begin
     if(x_vga = x_bull and y_vga = y_bull and l_bull = '1') then
       draw <= '1';
