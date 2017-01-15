@@ -16,6 +16,7 @@ use IEEE.std_logic_1164.ALL;
 architecture behaviour of bullet_control is
 begin
 process(vga_x, vga_y, bullet_x, bullet_y)
+--Ook checken of kogel wel bestaat, anders worden niet-bestaande kogels ook getekend. ~Martijn
 begin
 	if((vga_x = bullet_x) and(vga_y = bullet_y)) then
 		output <= '1';
