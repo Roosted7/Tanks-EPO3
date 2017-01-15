@@ -23,25 +23,20 @@ port(	inp	:in std_logic;
 	reset	:in std_logic);
 end component;
 
-signal inp_f, bclk_d1, bclk_d2 : std_logic;
+signal inp_f, bclk_d: std_logic;
 
 begin
 mem1: mem port map(			inp_f,
 			outfbi,
 			reset,
-			bclk_d2,
+			bclk_d,
 			clk);
 
 s1: s port map(			infbi,
 			inp_f);
 
 del1: delay port map(			bclk,
-			bclk_d1,
-			clk,
-			reset);
-
-del2: delay port map(			bclk_d1,
-			bclk_d2,
+			bclk_d,
 			clk,
 			reset);
 
