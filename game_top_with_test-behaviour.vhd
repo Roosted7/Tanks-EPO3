@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-architecture behaviour of game_top is
+architecture behaviour of game_top_with_test is
 component in_syst_buff is
 port(
 	p_l		:in    std_logic;
@@ -151,10 +151,17 @@ port(
 end component;
 
 component mux6_2to1 is
-   port(input      :in    std_logic;
-        input_test :in    std_logic;
+   port(input      :in    std_logic_vector(5 downto 0);
+        input_test :in    std_logic_vector(5 downto 0);
         test_enable:in    std_logic;
-        output     :out   std_logic);
+        output     :out   std_logic_vector(5 downto 0));
+end component;
+
+component mux3_2to1 is
+   port(input      :in    std_logic_vector(2 downto 0);
+        input_test :in    std_logic_vector(2 downto 0);
+        test_enable:in    std_logic;
+        output     :out   std_logic_vector(2 downto 0));
 end component;
 
 component test_counter is
@@ -216,6 +223,8 @@ signal test_counter_count : std_logic_vector(15 downto 0);
 signal p_l_1_in, p_r_1_in, p_u_1_in, p_d_1_in, p_f_1_in, p_l_2_in, p_r_2_in, p_u_2_in, p_d_2_in, p_f_2_in, tf_in1, tf_in2 : std_logic;
 signal test_vector_1 : std_logic_vector(5 downto 0);
 signal test_tank_1_result, test_tank_2_result : std_logic;
+
+signal red_test, green_test, blue_test, red_out, green_out, blue_out : std_logic;
 
 begin
 
@@ -416,9 +425,9 @@ video_generator : vga_out port map(
 				rgb(2) => r_sig,
 				rgb(1) => g_sig,
 				rgb(0) => b_sig,
-				r => r_out,
-				g => g_out,
-				b => b_out,
+				r => red_out,
+				g => green_out,
+				b => blue_out,
 				frame => tf,
 				bullet => tb,
 				hsync => hsync_out,
@@ -426,6 +435,17 @@ video_generator : vga_out port map(
 				x => video_x,
 				y => video_y,
 				collision => collision_enable);
+video_test		: mux3_2to1 port map(
+				input(2) => r_out,
+				input(1) => g_out,
+				input(0) => b_out,
+				input_test(2) => red_test,
+				input_test(1) => green_test,
+				input_test(0) => blue_test,
+				test_enable => test_mode_enable,
+				output(2) => red_out,
+				output(1) => green_out,
+				output(0) => blue_out);
 input_counter_1 : input_counter port map(
 				clk => clk,
 				reset => reset,
