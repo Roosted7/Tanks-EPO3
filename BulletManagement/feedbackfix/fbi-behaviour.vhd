@@ -1,9 +1,9 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-architecture behaviour of fbi is
+architecture behaviour of fbit is
 
-component mem
+component memt
    port(d    :in    std_logic;
         q    :out   std_logic;
         reset:in    std_logic;
@@ -12,7 +12,7 @@ component mem
 end component;
 
 
-component delay
+component delayt
 port(	inp	:in std_logic;
 	outp	:out std_logic;
 	clk	:in std_logic;
@@ -22,13 +22,13 @@ end component;
 signal bclk_d : std_logic;
 
 begin
-mem1: mem port map(			infbi,
+mem1: memt port map(			infbi,
 			outfbi,
 			reset,
 			bclk_d,
 			clk);
 
-del1: delay port map(			bclk,
+del1: delayt port map(			bclk,
 			bclk_d,
 			clk,
 			reset);
