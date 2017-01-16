@@ -129,7 +129,18 @@ component tank_pos_top_level is
 		clk 		: in std_logic);
 end component;
 
-
+component toplvl_screen is
+   port(reset   :in    std_logic;
+        x       :in    std_logic_vector(3 downto 0);
+        y       :in    std_logic_vector(3 downto 0);
+        exist_t1:in    std_logic;
+        exist_t2:in    std_logic;
+        fire_t1 :in    std_logic;
+        fire_t2 :in    std_logic;
+        clk     :in    std_logic;
+        rgb     :in    std_logic_vector(2 downto 0);
+        rgb_out :out   std_logic_vector(2 downto 0)); 
+end component;
 
 component vga_out is
 port(
@@ -162,8 +173,14 @@ signal t1_live, t2_live, k1_live, k2_live : std_logic;
 signal r_sig, g_sig, b_sig : std_logic;
 
 signal t1_rip, t2_rip : std_logic;
+signal firet1, firet2 : std_logic;
+
+signal rgbtovga : std_logic_vector(2 downto 0);
 
 begin
+
+firet1 <= t1_encoded_in(2) and not(t1_encoded_in(1)) and t1_encoded_in(0);
+firet2 <= t2_encoded_in(2) and not(t2_encoded_in(1)) and t2_encoded_in(0);
 
 tank1_input : in_syst_buff port map(
 				p_l => p_l_1,
@@ -269,9 +286,7 @@ bullet_generator : bullet_mod port map(
 video_generator : vga_out port map(
 				clk => clk,
 				reset => reset,
-				rgb(2) => r_sig,
-				rgb(1) => g_sig,
-				rgb(0) => b_sig,
+				rgb => rgbtovga,
 				r => r_out,
 				g => g_out,
 				b => b_out,
@@ -287,6 +302,19 @@ input_counter_1 : input_counter port map(
 				reset => reset,
 				enable => input_counter_enable,
 				count => input_counter_val);
+startendscreen : toplvl_screen port map(
+				reset => reset,
+				x => video_x,
+				y => video_y,
+				exist_t1 => not(t1_rip),
+				exist_t2 => not(t2_rip),
+				fire_t1 => firet1,
+				fire_t2 => firet2,
+				clk => clk,
+				rgb(2) => r_sig,
+				rgb(1) => g_sig,
+				rgb(0) => b_sig,
+				rgb_out => rgbtovga);
 
 				
 end behaviour;
