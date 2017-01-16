@@ -13,7 +13,7 @@ begin
 			if(reset = '1') then
 				x_in_reg <= "1110";
 				y_in_reg <= "1110";
-				or_in_reg <= "10";
+				or_in_reg <= "00";
 			else 
 				x_in_reg <= tank_x_in;
 				y_in_reg <= tank_y_in;
