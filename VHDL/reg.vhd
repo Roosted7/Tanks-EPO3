@@ -37,10 +37,10 @@ begin
           q <= "00000000000"; 
        else
           if(bclk = '0') then
-					q(10) <= d(10);
-			 else
-					q <= d;
-			 end if;				
+		q(10) <= d(10);
+	  else
+		q <= d;
+	  end if;				
        end if;
     end if;
   end process;
