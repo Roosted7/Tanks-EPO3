@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-entity game_top is
+entity game_top_with_test is
    port(p_l_1         :in    std_logic;
         p_l_2         :in    std_logic;
         p_r_1         :in    std_logic;
@@ -27,4 +27,4 @@ entity game_top is
 	hsync_out		:out std_logic;
 	vsync_out		:out std_logic);
 	
-end game_top;
+end game_top_with_test;
