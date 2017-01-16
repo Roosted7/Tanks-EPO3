@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-architecture behaviour of delay is
+architecture behaviour of delayt is
 begin
 process (clk) is
 begin
