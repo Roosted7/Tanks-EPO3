@@ -20,7 +20,7 @@ component wallcheck is
         wc_newcoor_2  :out   std_logic_vector(7 downto 0);
 --        tankwall_c  :out   std_logic_vector(1 downto 0);
 --        tankwall_res:in    std_logic;
-        count_in    :in    std_logic_vector(2 downto 0);
+        count_in    :in    std_logic_vector(1 downto 0);
 	reset : in std_logic;
 	clk : in std_logic);
 end component;
@@ -35,12 +35,23 @@ component tank_collision is
 );
 end component;
 
+component counter2bit is
+    Port ( CLK : in  STD_LOGIC;
+           Count : out  STD_LOGIC_VECTOR (1 downto 0);
+	reset : in std_logic);
+end component;
+
+
+signal count : std_logic_vector(1 downto 0);
+
 
 signal newcoor_1, newcoor_2 : std_logic_vector(7 downto 0);
 signal wc_newcoor_1, wc_newcoor_2 : std_logic_vector(7 downto 0);
 
 
 begin
+
+lbl0: counter2bit port map (clk, count, reset);
 
 new_coordinates_tank1: new_coord port map (
 			old_tank_coord => old_pos_1,
@@ -66,7 +77,7 @@ check_walls: wallcheck port map (
 			wc_newcoor_2 => wc_newcoor_2,
 --			tankwall_c => tankwall_c,
 --			tankwall_res => tankwall_res,
-			count_in => count_in,
+			count_in => count,
 			reset => reset,
 			clk => clk
 			);
@@ -82,6 +93,12 @@ collisions: tank_collision port map (
 			);
 
 end structural;
+
+
+
+
+
+
 
 
 
