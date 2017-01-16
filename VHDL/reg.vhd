@@ -2,8 +2,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity reg_11 is
-  port( clk		 : in std_logic;
-		  b_clk   : in std_logic;
+  port( clk	: in std_logic;
+	b_clk   : in std_logic;
         reset   : in std_logic;
         d       : in std_logic_vector(10 downto 0);
         q       : out std_logic_vector(10 downto 0));
