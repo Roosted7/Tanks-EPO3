@@ -1,28 +1,30 @@
+-- bullet management toplevel file
 library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity bullet_mod is
-  port( bullet_clk  :   in std_logic;
+  port( -- system inputs
+        bullet_clk  :   in std_logic;
         reset       :   in std_logic;
-  
+        -- inputs from input encoder
         fire_b1     :   in std_logic_vector(2 downto 0);
+        fire_b2     :   in std_logic_vector(2 downto 0);
+        -- inputs from tank pixel generator
         l_t1        :   in std_logic;
         x_t1        :   in std_logic_vector(3 downto 0);
         y_t1        :   in std_logic_vector(3 downto 0);
         dir_t1      :   in std_logic_vector(1 downto 0);
-        
-        fire_b2     :   in std_logic_vector(2 downto 0);
         l_t2        :   in std_logic;
         x_t2        :   in std_logic_vector(3 downto 0);
         y_t2        :   in std_logic_vector(3 downto 0);
         dir_t2      :   in std_logic_vector(1 downto 0);
-        
+        -- inputs from vga output generator
         x_vga       :   in std_logic_vector(3 downto 0);
         y_vga       :   in std_logic_vector(3 downto 0);
-        
+        -- inputs from collision handler
         feedback_b1 :   in std_logic;
         feedback_b2 :   in std_logic;
-        
+        -- outputs to vga output generator
         draw_b1     :   out std_logic;
         draw_b2     :   out std_logic);
 end bullet_mod;
