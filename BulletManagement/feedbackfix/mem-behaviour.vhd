@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.ALL;
 
-architecture behaviour of mem is
+architecture behaviour of memt is
 signal pre_q : std_logic;
 signal r_bclk: std_logic;
 
