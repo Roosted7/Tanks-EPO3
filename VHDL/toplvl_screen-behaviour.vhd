@@ -22,7 +22,8 @@ component game_fsm is
         exist_t2:in    std_logic;
 	clk	:in	std_logic; 
 	reset :in    std_logic;
-        rgb_out    :out   std_logic_vector(2 downto 0));
+        rgb_out    :out   std_logic_vector(2 downto 0);
+		  idle		 :out	  std_logic);
 end component;
 
 component start_map is
@@ -31,8 +32,7 @@ component start_map is
         draw_start	:out   std_logic);
 end component;
 
-signal draw_end, draw_start : std_logic; 
-signal draw_endscreen, draw_startscreen : std_logic; 
+signal draw_end, draw_start : std_logic;
 
 
 begin
@@ -40,12 +40,12 @@ begin
 start_screen : start_map port map(
 		x => x, 
 		y => y,
-		draw_start => draw_startscreen); 
+		draw_start => draw_start); 
 
 end_screen : end_map port map(
 		x => x,
 		y => y,
-		draw_end => draw_endscreen, 
+		draw_end => draw_end, 
 		exist_t1 => exist_t1);
 
 gamefsm : game_fsm port map( 
@@ -60,7 +60,8 @@ gamefsm : game_fsm port map(
         		exist_t2 => exist_t2, 
 		clk => clk, 
 		reset => reset, 
-       		rgb_out => rgb_out);  
+       		rgb_out => rgb_out,
+				idle => idle);  
 end behaviour;
 
 

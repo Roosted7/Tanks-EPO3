@@ -46,6 +46,8 @@ port(t1       :in    std_logic;
         k2       :in    std_logic;
         m        :in    std_logic;
         v        :in    std_logic;
+		  t1_rip	  :in		std_logic;
+		  t2_rip	  :in		std_logic;
         red      :out   std_logic;
 	green    :out   std_logic;
 	blue     :out   std_logic;
@@ -139,7 +141,8 @@ component toplvl_screen is
         fire_t2 :in    std_logic;
         clk     :in    std_logic;
         rgb     :in    std_logic_vector(2 downto 0);
-        rgb_out :out   std_logic_vector(2 downto 0)); 
+        rgb_out :out   std_logic_vector(2 downto 0);
+		  idle	 :out	  std_logic); 
 end component;
 
 component vga_out is
@@ -175,19 +178,31 @@ signal r_sig, g_sig, b_sig : std_logic;
 signal t1_rip, t2_rip : std_logic;
 signal firet1, firet2 : std_logic;
 
-signal rgbtovga : std_logic_vector(2 downto 0);
+signal game_rgb : std_logic_vector(2 downto 0);
+signal game_p_l_1, game_p_r_1, game_p_u_1, game_p_d_1, game_p_f_1 :std_logic;
+signal game_p_l_2, game_p_r_2, game_p_u_2, game_p_d_2, game_p_f_2 :std_logic;
+signal game_idle: std_logic;
 
 begin
 
-firet1 <= t1_encoded_in(2) and not(t1_encoded_in(1)) and t1_encoded_in(0);
-firet2 <= t2_encoded_in(2) and not(t2_encoded_in(1)) and t2_encoded_in(0);
+game_p_l_1 <= p_l_1 and not(game_idle);
+game_p_r_1 <= p_r_1 and not(game_idle);
+game_p_u_1 <= p_u_1 and not(game_idle);
+game_p_d_1 <= p_d_1 and not(game_idle);
+game_p_f_1 <= p_f_1 and not(game_idle);
+
+game_p_l_2 <= p_l_2 and not(game_idle);
+game_p_r_2 <= p_r_2 and not(game_idle);
+game_p_u_2 <= p_u_2 and not(game_idle);
+game_p_d_2 <= p_d_2 and not(game_idle);
+game_p_f_2 <= p_f_2 and not(game_idle);
 
 tank1_input : in_syst_buff port map(
-				p_l => p_l_1,
-				p_r => p_r_1,
-				p_u => p_u_1,
-				p_d => p_d_1,
-				p_f => not (p_f_1),
+				p_l => game_p_l_1,
+				p_r => game_p_r_1,
+				p_u => game_p_u_1,
+				p_d => game_p_d_1,
+				p_f => game_p_f_1,
 				frame => tf,
 				clk => clk,
 				reset => reset,
@@ -195,11 +210,11 @@ tank1_input : in_syst_buff port map(
 				counter_enable => input_counter_enable(0),
 				t_e => t1_encoded_in);
 tank2_input : in_syst_buff port map(
-				p_l => p_l_2,
-				p_r => p_r_2,
-				p_u => p_u_2,
-				p_d => p_d_2,
-				p_f => not (p_f_2),
+				p_l => game_p_l_2,
+				p_r => game_p_r_2,
+				p_u => game_p_u_2,
+				p_d => game_p_d_2,
+				p_f => game_p_f_2,
 				frame => tf,
 				clk => clk,
 				reset => reset,
@@ -210,6 +225,8 @@ tank_pos_calc : tank_pos_top_level port map(
 				input_direction_1 => t1_encoded_in,
 				input_direction_2 => t2_encoded_in,
 				old_pos_1(9 downto 0) => t1_pos,
+				old_pos_1(10) => '0',
+				old_pos_2(10) => '0',
 				old_pos_2(9 downto 0) => t2_pos,
 				clk => clk,
 				reset => reset,
@@ -256,6 +273,8 @@ collision_handler : coll_handler port map(
 				k2 => k2_act,
 				m => m_act,
 				v => collision_enable,
+				t1_rip => t1_rip,
+				t2_rip => t2_rip,
 				red => r_sig,
 				green => g_sig,
 				blue => b_sig,
@@ -286,7 +305,7 @@ bullet_generator : bullet_mod port map(
 video_generator : vga_out port map(
 				clk => clk,
 				reset => reset,
-				rgb => rgbtovga,
+				rgb => game_rgb,
 				r => r_out,
 				g => g_out,
 				b => b_out,
@@ -308,16 +327,18 @@ startendscreen : toplvl_screen port map(
 				y => video_y,
 				exist_t1 => not(t1_rip),
 				exist_t2 => not(t2_rip),
-				fire_t1 => firet1,
-				fire_t2 => firet2,
+				fire_t1	=> p_f_1,
+				fire_t2	=> p_f_2,
 				clk => clk,
 				rgb(2) => r_sig,
 				rgb(1) => g_sig,
 				rgb(0) => b_sig,
-				rgb_out => rgbtovga);
-
-				
+				rgb_out => game_rgb,
+				idle => game_idle);
 end behaviour;
+
+
+
 
 
 

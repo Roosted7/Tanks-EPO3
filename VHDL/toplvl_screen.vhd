@@ -11,7 +11,8 @@ entity toplvl_screen is
         fire_t2 :in    std_logic;
         clk     :in    std_logic;
         rgb     :in    std_logic_vector(2 downto 0);
-        rgb_out :out   std_logic_vector(2 downto 0)); 
+        rgb_out :out   std_logic_vector(2 downto 0);
+		  idle	 :out	  std_logic); 
 end toplvl_screen;
 
 

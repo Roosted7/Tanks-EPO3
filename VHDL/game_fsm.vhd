@@ -12,7 +12,8 @@ entity game_fsm is
 	clk	:in	std_logic; 
 	draw_endscreen, draw_startscreen : in std_logic; 
 	reset :in    std_logic;
-        rgb_out    :out   std_logic_vector(2 downto 0));
+        rgb_out    :out   std_logic_vector(2 downto 0);
+		  idle		:out std_logic);
 end game_fsm;
 
 

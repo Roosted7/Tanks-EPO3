@@ -8,6 +8,8 @@ entity coll_handler is
         k2       :in    std_logic;
         m        :in    std_logic;
         v        :in    std_logic;
+	t1_rip	 :in	  std_logic;
+	t2_rip	 :in    std_logic;
         red      :out   std_logic;
 	green    :out   std_logic;
 	blue     :out   std_logic;
