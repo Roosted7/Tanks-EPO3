@@ -20,9 +20,13 @@ paarse draadjes eerst links onderste vijf van boven naar beneden en dan rechts
 rood op zesde links en zwart op zesde rechts
 paarse boven weerstandjes van links naar rechts
 pd1	Input	PIN_J15
+
 pd2	Input	PIN_H18
+
 pf1	Input	PIN_P17
+
 pf2	Input	PIN_P18
+
 pl1	Input	PIN_G17
 pl2	Input	PIN_H17
 pr1	Input	PIN_P15
