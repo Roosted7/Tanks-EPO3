@@ -16,7 +16,7 @@ Gantt-chart: https://drive.google.com/open?id=0Bxp50PK677dFNk84MFBLQkh5S00
 4. Martijn taart counter: 1
 
 
-totaal: 20*5 = 107.50
+totaal: 20*5 = 100
 
 Koopideen:
 - 2150 schuimblokken
@@ -24,3 +24,4 @@ Koopideen:
 - 23 kg popcorn
 - 1075 magnetron pannenkoeken
 - 16475 m&m's
+- 35 lijntjes
