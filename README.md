@@ -25,3 +25,8 @@ Koopideen:
 - 1075 magnetron pannenkoeken
 - 16475 m&m's
 - 35 lijntjes
+- 10.000 transistoren
+- fles cognac en 1 fles whiskey
+- half uur 24 Roemeense vrouwen
+- 450 000 liter water (wedstrijd zwembad)
+- 50 m2 boerengrond
