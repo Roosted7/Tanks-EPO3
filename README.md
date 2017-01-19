@@ -10,8 +10,17 @@ Link to ShareLaTeX: https://www.sharelatex.com/project/5816526838744a1e5a319ce4
 Gantt-chart: https://drive.google.com/open?id=0Bxp50PK677dFNk84MFBLQkh5S00
 
 ## Cakes, the most important part of our success
-1. Thomas taart counter: 15
+1. Thomas taart counter: 14
 2. Tijs taart counter: 4
-3. AP taart counter: 1.5
+3. AP taart counter: 1
 4. Martijn taart counter: 1
-5. Simon 1
+
+
+totaal: 20*5 = 107.50
+
+Koopideen:
+- 2150 schuimblokken
+- 608 kg suiker
+- 23 kg popcorn
+- 1075 magnetron pannenkoeken
+- 16475 m&m's
