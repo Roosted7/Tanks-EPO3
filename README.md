@@ -15,6 +15,7 @@ Gantt-chart: https://drive.google.com/open?id=0Bxp50PK677dFNk84MFBLQkh5S00
 3. AP taart counter: 1
 4. Martijn taart counter: 1
 
+Eindpresentatie: https://docs.google.com/presentation/d/1f0R0H7SdKB65rOlsB-azWT3GUBelJoLIHzUmiyO9sns/edit?usp=sharing
 
 totaal: 20*5 = 100
 
